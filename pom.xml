@@ -5,13 +5,13 @@
     <groupId>org.terasoluna.gfw.blank</groupId>
     <artifactId>terasoluna-gfw-web-blank</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0.RELEASE</version>
+    <version>1.1.0-BUILD-SNAPSHOT</version>
     <description>Blank project using TERASOLUNA Global Framework</description>
 
     <parent>
         <groupId>org.terasoluna.gfw</groupId>
         <artifactId>terasoluna-gfw-parent</artifactId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
 
     <properties>
