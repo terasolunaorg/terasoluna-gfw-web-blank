@@ -5,7 +5,8 @@ Blank project for web application using TERASOLUNA Global Framework (Spring MVC 
 
 ## Getting Started
 
-You can use maven archetype of TERASOLUNA Global Framework.
+You can quickly create your blank project using maven archetype of TERASOLUNA Global Framework .
+Execute `mvn archetype:generate -DarchetypeCatalog=http://54.248.227.230/nexus/content/repositories/terasoluna-gfw-releases`.
 
 	$ mvn archetype:generate -DarchetypeCatalog=http://54.248.227.230/nexus/content/repositories/terasoluna-gfw-releases
 	[INFO] Scanning for projects...
@@ -35,6 +36,10 @@ Choose number
 
 **Note that 54.248.227.230 is temporary ip, and changed in future.**
 
+
+Run
+
+    $ mvn tomcat7:run
 
 ## Download
 
