@@ -36,6 +36,7 @@ Choose number
 
 Run
 
+    $ cd <your artifaceId>
     $ mvn tomcat7:run
 
 ## Download
