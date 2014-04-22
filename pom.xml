@@ -4,9 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.terasoluna.gfw.blank</groupId>
     <artifactId>terasoluna-gfw-web-blank</artifactId>
-    <packaging>war</packaging>
     <version>1.0.1-SNAPSHOT</version>
-    <description>Blank project using TERASOLUNA Global Framework</description>
+    <packaging>war</packaging>
+    <name>TERASOLUNA Global Framework Web Blank Project</name>
+    <description>Web Blank Project using TERASOLUNA Global Framework</description>
+    <url>http://terasoluna.org</url>
+    <inceptionYear>2013</inceptionYear>
 
     <parent>
         <groupId>org.terasoluna.gfw</groupId>
