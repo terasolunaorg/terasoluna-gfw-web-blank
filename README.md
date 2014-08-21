@@ -16,36 +16,82 @@ There are two ways to get started. Download or use maven archetype to let it dow
 ### Use maven archetype
 
 Quickly create your blank project using maven archetype of TERASOLUNA Global Framework.
-Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases`.
+Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
 
-	$ mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases
 
-The above command must generate a response similar to the following one:
+#### a blank project without any DB configuration
 
-	[INFO] Scanning for projects...
-	[INFO]
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Building Maven Stub Project (No POM) 1
-	[INFO] ------------------------------------------------------------------------
-	[INFO]
-	[INFO] >>> maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom >>>
-	[INFO]
-	[INFO] <<< maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom <<<
-	[INFO]
-	[INFO] --- maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom ---
-	[INFO] Generating project in Interactive mode
-	[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
-	Choose archetype:
-	1: http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases -> org.terasoluna.gfw.blank:terasoluna-gfw-web-blank-archetype (Blank project using TERASOLUNA Global Framework)
-	2: http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases -> org.terasoluna.gfw.blank:terasoluna-gfw-web-blank-jpa-archetype (Blank project using TERASOLUNA Global Framework (JPA))
-	3: http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases -> org.terasoluna.gfw.blank:terasoluna-gfw-web-blank-mybatis2-archetype (Blank project using TERASOLUNA Global Framework (MyBatis2))
-	Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): : 
+To create a plain blank project
 
-At this stage, the command prompt will ask to choose the archetype. Choose any number out the following three options and follow further instructions to download the archetype.
+##### for CommandPrompt
+```
+mvn archetype:generate^
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
+ -DarchetypeGroupId=org.terasoluna.gfw.blank^
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
+ -DarchetypeVersion=1.0.1.RELEASE
+```
 
-1. A template project without any db accsess configuration
-2. A template project with MyBatis2 configuration
-3. A template project with Spring Data JPA configuration
+##### for Bash
+
+```
+mvn archetype:generate\
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
+ -DarchetypeGroupId=org.terasoluna.gfw.blank\
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
+ -DarchetypeVersion=1.0.1.RELEASE
+```
+
+#### a blank project with JPA (Spring Data JPA)
+
+To create a blank project with JPA (Spring Data JPA)
+
+##### for CommandPrompt
+```
+mvn archetype:generate^
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
+ -DarchetypeGroupId=org.terasoluna.gfw.blank^
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
+ -DarchetypeVersion=1.0.1.RELEASE
+```
+
+##### for Bash
+
+```
+mvn archetype:generate\
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
+ -DarchetypeGroupId=org.terasoluna.gfw.blank\
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
+ -DarchetypeVersion=1.0.1.RELEASE
+```
+
+#### a blank project with MyBatis2
+
+To create a blank project with MyBatis2
+
+##### for CommandPrompt
+```
+mvn archetype:generate^
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
+ -DarchetypeGroupId=org.terasoluna.gfw.blank^
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype^
+ -DarchetypeVersion=1.0.1.RELEASE
+```
+
+##### for Bash
+
+```
+mvn archetype:generate\
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
+ -DarchetypeGroupId=org.terasoluna.gfw.blank\
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype\
+ -DarchetypeVersion=1.0.1.RELEASE
+```
+
+#### a blank project with MyBatis3
+
+Comming soon (MyBatis3 is planned to be supported from 1.1.0.RELEASE).
+
 
 ### Download
 If you don't want to use maven archetype, download manually from the following link.
