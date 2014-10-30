@@ -45,7 +45,6 @@
 
     <!-- Put UserID into MDC -->
     <bean id="userIdMDCPutFilter" class="org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter">
-        <property name="removeValue" value="true" />
     </bean>
 
 </beans>
