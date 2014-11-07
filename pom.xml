@@ -83,8 +83,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.3.172</version>
-            <scope>compile</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE JPA  -->
         <!--  REMOVE THIS LINE IF YOU USE MyBatis2
@@ -95,8 +93,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.3.172</version>
-            <scope>compile</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE MyBatis2  -->
         <!--  REMOVE THIS LINE IF YOU USE MyBatis3
@@ -107,22 +103,13 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.3.172</version>
-            <scope>compile</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE MyBatis3  -->
 
         <!-- Servlet API/ JSP API -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>7.0.40</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>7.0.40</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
