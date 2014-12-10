@@ -112,5 +112,15 @@
             <artifactId>tomcat-jsp-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Coding Support -->
+        <!--
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        -->
+
     </dependencies>
 </project>
