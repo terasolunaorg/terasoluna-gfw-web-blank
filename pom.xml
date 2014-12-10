@@ -83,6 +83,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE JPA  -->
         <!--  REMOVE THIS LINE IF YOU USE MyBatis2
@@ -93,6 +94,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE MyBatis2  -->
         <!--  REMOVE THIS LINE IF YOU USE MyBatis3
@@ -103,6 +105,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE MyBatis3  -->
 
