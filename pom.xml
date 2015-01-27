@@ -6,8 +6,8 @@
     <artifactId>terasoluna-gfw-web-blank</artifactId>
     <version>5.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>TERASOLUNA Global Framework Web Blank Project</name>
-    <description>Web Blank Project using TERASOLUNA Global Framework</description>
+    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
+    <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
     <url>http://terasoluna.org</url>
     <inceptionYear>2013</inceptionYear>
 
