@@ -114,9 +114,11 @@ The above two points need to be modified manually as per the requirements.
 
 In order to run the blank project, execute the below command. (This command starts the embedded tomcat server. Hence check whether any other instance of Tomcat is not running on your local machine)
 
-    $ cd <your artifaceId>
-    $ mvn tomcat7:run
-    
+``` console
+$ cd <your artifaceId>
+$ mvn tomcat7:run
+```
+
 Access the following to confirm.
 
     http://localhost:8080/<your artifactId\>
