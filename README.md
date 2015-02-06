@@ -24,22 +24,22 @@ Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/ne
 To create a plain blank project
 
 ##### for CommandPrompt
-```
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 #### a blank project with JPA (Spring Data JPA)
@@ -47,22 +47,22 @@ mvn archetype:generate\
 To create a blank project with JPA (Spring Data JPA)
 
 ##### for CommandPrompt
-```
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 #### a blank project with MyBatis2
@@ -70,27 +70,27 @@ mvn archetype:generate\
 To create a blank project with MyBatis2
 
 ##### for CommandPrompt
-```
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=1.0.2.RELEASE
 ```
 
 #### a blank project with MyBatis3
 
-Comming soon (MyBatis3 is planned to be supported from 1.1.0.RELEASE).
+MyBatis3 is supported from 5.0.0.RELEASE.
 
 
 ### Download
@@ -114,9 +114,11 @@ The above two points need to be modified manually as per the requirements.
 
 In order to run the blank project, execute the below command. (This command starts the embedded tomcat server. Hence check whether any other instance of Tomcat is not running on your local machine)
 
-    $ cd <your artifaceId>
-    $ mvn tomcat7:run
-    
+``` console
+$ cd <your artifaceId>
+$ mvn tomcat7:run
+```
+
 Access the following to confirm.
 
     http://localhost:8080/<your artifactId\>
