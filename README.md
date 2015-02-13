@@ -72,7 +72,8 @@ mvn archetype:generate\
 To create a blank project with JPA (Spring Data JPA)
 
 ##### for CommandPrompt
-```
+
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
@@ -82,7 +83,7 @@ mvn archetype:generate^
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
