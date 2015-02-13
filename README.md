@@ -1,6 +1,6 @@
-# TERASOLUNA Server Framework for Java 5.x Blank Project
+# TERASOLUNA Server Framework for Java (5.x) Blank Project
 
-This is blank project template for web application is provided in collaboration with TERASOLUNA Server Framework for Java 5.x (Spring MVC + Spring + MyBatis3/JPA).
+This is blank project template for web application is provided in collaboration with TERASOLUNA Server Framework for Java (5.x) (Spring MVC + Spring + MyBatis3/JPA).
 
 Use this as the starting point of all kinds of development activities. 
 
@@ -15,7 +15,7 @@ There are two ways to get started. Download or use maven archetype to let it dow
 
 ### Use maven archetype
 
-Quickly create your blank project using maven archetype of TERASOLUNA Server Framework for Java 5.x.
+Quickly create your blank project using maven archetype of TERASOLUNA Server Framework for Java (5.x).
 Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
 
 
@@ -24,7 +24,8 @@ Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/ne
 To create a plain blank project
 
 ##### for CommandPrompt
-```
+
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
@@ -34,7 +35,7 @@ mvn archetype:generate^
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
@@ -47,7 +48,8 @@ mvn archetype:generate\
 To create a blank project with MyBatis3
 
 ##### for CommandPrompt
-```
+
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
@@ -57,7 +59,7 @@ mvn archetype:generate^
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
