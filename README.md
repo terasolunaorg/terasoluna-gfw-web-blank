@@ -1,6 +1,6 @@
-# TERASOLUNA Global Framework Blank Project
+# TERASOLUNA Server Framework for Java (5.x) Blank Project
 
-This is blank project template for web application is provided in collaboration with TERASOLUNA Global Framework (Spring MVC + Spring + JPA/MyBatis2).
+This is blank project template for web application is provided in collaboration with TERASOLUNA Server Framework for Java (5.x) (Spring MVC + Spring + MyBatis3/JPA).
 
 Use this as the starting point of all kinds of development activities. 
 
@@ -15,7 +15,7 @@ There are two ways to get started. Download or use maven archetype to let it dow
 
 ### Use maven archetype
 
-Quickly create your blank project using maven archetype of TERASOLUNA Global Framework.
+Quickly create your blank project using maven archetype of TERASOLUNA Server Framework for Java (5.x).
 Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
 
 
@@ -24,22 +24,47 @@ Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/ne
 To create a plain blank project
 
 ##### for CommandPrompt
-```
+
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=5.0.0.RELEASE
 ```
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=5.0.0.RELEASE
+```
+
+#### a blank project with MyBatis3
+
+To create a blank project with MyBatis3
+
+##### for CommandPrompt
+
+``` console
+mvn archetype:generate^
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
+ -DarchetypeGroupId=org.terasoluna.gfw.blank^
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype^
+ -DarchetypeVersion=5.0.0.RELEASE
+```
+
+##### for Bash
+
+``` console
+mvn archetype:generate\
+ -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
+ -DarchetypeGroupId=org.terasoluna.gfw.blank\
+ -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype\
+ -DarchetypeVersion=5.0.0.RELEASE
 ```
 
 #### a blank project with JPA (Spring Data JPA)
@@ -47,51 +72,24 @@ mvn archetype:generate\
 To create a blank project with JPA (Spring Data JPA)
 
 ##### for CommandPrompt
-```
+
+``` console
 mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=5.0.0.RELEASE
 ```
 
 ##### for Bash
 
-```
+``` console
 mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
+ -DarchetypeVersion=5.0.0.RELEASE
 ```
-
-#### a blank project with MyBatis2
-
-To create a blank project with MyBatis2
-
-##### for CommandPrompt
-```
-mvn archetype:generate^
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
- -DarchetypeGroupId=org.terasoluna.gfw.blank^
- -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype^
- -DarchetypeVersion=1.0.1.RELEASE
-```
-
-##### for Bash
-
-```
-mvn archetype:generate\
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
- -DarchetypeGroupId=org.terasoluna.gfw.blank\
- -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype\
- -DarchetypeVersion=1.0.1.RELEASE
-```
-
-#### a blank project with MyBatis3
-
-Comming soon (MyBatis3 is planned to be supported from 1.1.0.RELEASE).
-
 
 ### Download
 If you don't want to use maven archetype, download manually from the following link.
