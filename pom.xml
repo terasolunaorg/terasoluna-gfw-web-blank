@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.terasoluna.gfw.blank</groupId>
     <artifactId>terasoluna-gfw-web-blank</artifactId>
-    <version>5.0.0-SNAPSHOT</version>
+    <version>5.1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
     <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.terasoluna.gfw</groupId>
         <artifactId>terasoluna-gfw-parent</artifactId>
-        <version>5.0.0-SNAPSHOT</version>
+        <version>5.1.0-SNAPSHOT</version>
         <relativePath />
     </parent>
 
