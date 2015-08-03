@@ -30,7 +30,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 ##### for Bash
@@ -40,7 +40,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 #### a blank project with MyBatis3
@@ -54,7 +54,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype^
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 ##### for Bash
@@ -64,7 +64,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype\
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 #### a blank project with JPA (Spring Data JPA)
@@ -78,7 +78,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 ##### for Bash
@@ -88,7 +88,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=5.0.0.RELEASE
+ -DarchetypeVersion=5.0.1.RELEASE
 ```
 
 ### Download
