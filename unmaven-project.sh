@@ -7,7 +7,7 @@ PROJECTNAME=$1
 if [ "$PROJECTNAME" == "" ];then
     PROJECTNAME=`basename \`pwd\``
 fi
-JAVAVERSION=1.7
+JAVAVERSION=1.8
 
 echo "PROJECTNAME=$PROJECTNAME"
 
