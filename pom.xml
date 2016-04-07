@@ -140,6 +140,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- JavaEE/SE APIs -->
+        <!--  Required only for Tomcat. If run on other J2EE server,
+            remove this dependency and use provided tag libraries. -->
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-jstlel</artifactId>
+        </dependency>
+
         <!-- Coding Support -->
         <!--
         <dependency>
