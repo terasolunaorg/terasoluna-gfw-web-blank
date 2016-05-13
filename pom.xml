@@ -114,6 +114,7 @@
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-jpa</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -125,6 +126,7 @@
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-mybatis3</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
