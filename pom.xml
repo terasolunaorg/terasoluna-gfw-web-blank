@@ -177,7 +177,7 @@
         </dependency>
          -->
 
-        <!-- Unit Test -->
+        <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -198,13 +198,23 @@
             <artifactId>tomcat-embed-el</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <properties>
-        <java-version>1.8</java-version>
-        <encoding>UTF-8</encoding>
-        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
+        <!-- == Maven Plugin Versions == -->
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
+        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
+        <!-- == Dependency Versions == -->
+        <selenium.version>2.46.0</selenium.version>
+        <!-- == Project Properties == -->
+        <encoding>UTF-8</encoding>
+        <java-version>1.8</java-version>
     </properties>
 
 </project>
