@@ -210,13 +210,13 @@
 
     <properties>
         <!-- == Maven Plugin Versions == -->
-        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
+        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
         <selenium.version>2.46.0</selenium.version>
         <!-- == Project Properties == -->
-        <java-version>1.8</java-version>
         <encoding>UTF-8</encoding>
+        <java-version>1.8</java-version>
     </properties>
 
 </project>
