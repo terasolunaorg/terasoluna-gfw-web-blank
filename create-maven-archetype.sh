@@ -22,7 +22,7 @@ sed -i -e "s/terasoluna-gfw-web-blank/projectName/g" pom.xml
 
 rm -rf `find . -name '.svn' -type d`
 
-if [ $1 = "central" ]; then
+if [ "$1" = "central" ]; then
   profile="-P central"
 fi
 mvn archetype:create-from-project ${profile}
@@ -32,7 +32,7 @@ pushd target/generated-sources/archetype
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
 sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
 
-if [ $1 = "central" ]; then
+if [ "$1" = "central" ]; then
   # add plugins to deploy to Maven Central Repository
   LF=$(printf '\\\012_')
   LF=${LF%_}
