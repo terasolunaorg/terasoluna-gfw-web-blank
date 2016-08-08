@@ -23,9 +23,9 @@ sed -i -e "s/terasoluna-gfw-web-blank/projectName/g" pom.xml
 rm -rf `find . -name '.svn' -type d`
 
 if [ "$1" = "central" ]; then
-  profile="-P central"
+  PROFILE="-P central"
 fi
-mvn archetype:create-from-project ${profile}
+mvn archetype:create-from-project ${PROFILE}
 
 pushd target/generated-sources/archetype
 
