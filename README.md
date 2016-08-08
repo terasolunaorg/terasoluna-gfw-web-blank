@@ -116,7 +116,7 @@ In order to run the blank project, execute the below command. (This command star
 
 ``` console
 $ cd <your artifaceId>
-$ mvn tomcat7:run
+$ mvn package cargo:run
 ```
 
 Access the following to confirm.
