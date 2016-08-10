@@ -9,7 +9,7 @@ mv src/main/resources/META-INF/spring/projectName-domain.xml src/main/resources/
 mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/META-INF/spring/__artifactId__-infra.xml
 mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
 
-# if JPA or Mybatis3 is used
+# if JPA or Mybatis2 is used
 if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
   mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
 fi
