@@ -29,7 +29,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 ##### for Bash
@@ -39,7 +39,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 #### a blank project with JPA (Spring Data JPA)
@@ -52,7 +52,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 ##### for Bash
@@ -62,7 +62,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 #### a blank project with MyBatis2
@@ -75,7 +75,7 @@ mvn archetype:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype^
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 ##### for Bash
@@ -85,7 +85,7 @@ mvn archetype:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis2-archetype\
- -DarchetypeVersion=1.0.4.RELEASE
+ -DarchetypeVersion=1.0.5.RELEASE
 ```
 
 #### a blank project with MyBatis3
