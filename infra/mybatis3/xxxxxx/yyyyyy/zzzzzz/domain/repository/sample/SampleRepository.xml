@@ -6,12 +6,14 @@
 <mapper namespace="xxxxxx.yyyyyy.zzzzzz.domain.repository.sample.SampleRepository">
 
 <!--
+
     <resultMap id="todoResultMap" type="Todo">
         <id property="todoId" column="todo_id" />
         <result property="todoTitle" column="todo_title" />
         <result property="finished" column="finished" />
         <result property="createdAt" column="created_at" />
     </resultMap>
+
     <select id="findOne" parameterType="string" resultMap="todoResultMap">
     <![CDATA[
         SELECT
@@ -25,6 +27,7 @@
             todo_id = #{todoId}
     ]]>
     </select>
+
     <select id="findAll" resultMap="todoResultMap">
     <![CDATA[
         SELECT
@@ -36,6 +39,7 @@
             todo 
     ]]>
     </select>
+
     <insert id="create" parameterType="Todo">
     <![CDATA[
         INSERT INTO todo
@@ -54,6 +58,7 @@
         )
     ]]>
     </insert>
+
     <update id="update" parameterType="Todo">
     <![CDATA[
         UPDATE
@@ -66,6 +71,7 @@
             todo_id = #{todoId}
     ]]>
     </update>
+
     <delete id="delete" parameterType="Todo">
     <![CDATA[
         DELETE FROM todo 
@@ -73,6 +79,7 @@
             todo_id = #{todoId}
     ]]>
     </delete>
+
     <select id="countByFinished" parameterType="boolean" resultType="long">
     <![CDATA[
         SELECT
@@ -83,6 +90,7 @@
             finished = #{finished}
     ]]>
     </select>
+
     <select id="exists" parameterType="string" resultType="long">
     <![CDATA[
         SELECT
@@ -93,6 +101,7 @@
             todo_id = #{todoId}
     ]]>
     </select>
+
 -->
 
 </mapper>
