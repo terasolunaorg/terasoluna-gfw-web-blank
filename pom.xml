@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.terasoluna.gfw.blank</groupId>
     <artifactId>terasoluna-gfw-web-blank</artifactId>
     <version>5.0.3-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
-    <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
-    <url>http://terasoluna.org</url>
-    <inceptionYear>2013</inceptionYear>
-
     <parent>
         <groupId>org.terasoluna.gfw</groupId>
         <artifactId>terasoluna-gfw-parent</artifactId>
@@ -18,11 +13,21 @@
         <relativePath />
     </parent>
 
-    <properties>
-        <java-version>1.7</java-version>
-        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
-    </properties>
-
+    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
+    <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
+    <url>http://terasoluna.org</url>
+    <inceptionYear>2014</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>TERASOLUNA Framework Team</name>
+        <url>http://terasoluna.org</url>
+    </organization>
     <repositories>
         <repository>
             <releases>
@@ -45,10 +50,21 @@
             <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-snapshots/</url>
         </repository>
     </repositories>
-
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
@@ -82,12 +98,26 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                    <configuration>
+                        <warName>${project.artifactId}</warName>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <dependencies>
-        <!-- TERASOLUNA -->
+        <!-- == Begin TERASOLUNA == -->
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-web</artifactId>
@@ -132,27 +162,49 @@
             <scope>runtime</scope>
         </dependency>
               REMOVE THIS LINE IF YOU USE MyBatis3  -->
+        <!-- == End TERASOLUNA == -->
 
-        <!-- Servlet API/ JSP API -->
+        <!-- == Begin Tomcat == -->
+        <!-- Servlet API 3.0 & JSP API 2.2 -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Coding Support -->
-        <!--
+        <!-- JavaEE/SE APIs -->
+        <!--  Required only for Tomcat. If run on other J2EE server,
+            remove this dependency and use provided tag libraries. -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-jstlel</artifactId>
         </dependency>
-        -->
+        <!-- == End Tomcat == -->
 
-        <!-- Unit Test -->
+        <!-- == Begin Database == -->
+<!--         <dependency> -->
+<!--             <groupId>org.postgresql</groupId> -->
+<!--             <artifactId>postgresql</artifactId> -->
+<!--             <version>${postgresql.version}</version> -->
+<!--             <scope>provided</scope> -->
+<!--         </dependency> -->
+<!--         <dependency> -->
+<!--             <groupId>com.oracle</groupId> -->
+<!--             <artifactId>ojdbc7</artifactId> -->
+<!--             <version>${ojdbc.version}</version> -->
+<!--             <scope>provided</scope> -->
+<!--         </dependency> -->
+        <!-- == End Database == -->
+
+        <!-- == Begin Unit Test == -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -170,6 +222,37 @@
             <artifactId>tomcat-embed-el</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- == End Unit Test == -->
+
+        <!-- == Begin Coding Support == -->
+        <!--
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        -->
+        <!-- == End Coding Support == -->
 
     </dependencies>
+
+    <properties>
+        <!-- == Maven Plugin Versions == -->
+        <maven-war-plugin.version>2.5</maven-war-plugin.version>
+        <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
+        <!-- == Dependency Versions == -->
+        <postgresql.version>9.4-1206-jdbc41</postgresql.version>
+        <ojdbc.version>12.1.0.2</ojdbc.version>
+        <selenium.version>2.46.0</selenium.version>
+        <!-- == Project Properties == -->
+        <encoding>UTF-8</encoding>
+        <java-version>1.8</java-version>
+    </properties>
 </project>
