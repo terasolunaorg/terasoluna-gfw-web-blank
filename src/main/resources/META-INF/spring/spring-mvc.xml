@@ -65,14 +65,8 @@
 
     <!-- Settings View Resolver. -->
     <mvc:view-resolvers>
-        <mvc:bean-name />
-        <mvc:tiles />
         <mvc:jsp prefix="/WEB-INF/views/" />
     </mvc:view-resolvers>
-
-    <mvc:tiles-configurer>
-        <mvc:definitions location="/WEB-INF/tiles/tiles-definitions.xml" />
-    </mvc:tiles-configurer>
 
     <bean id="requestDataValueProcessor"
         class="org.terasoluna.gfw.web.mvc.support.CompositeRequestDataValueProcessor">
