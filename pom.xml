@@ -16,7 +16,7 @@
     <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
     <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
     <url>http://terasoluna.org</url>
-    <inceptionYear>2014</inceptionYear>
+    <inceptionYear>2013</inceptionYear>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -53,18 +53,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven-failsafe-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>integration-test</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
@@ -140,7 +128,7 @@
             <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
             <type>pom</type>
         </dependency>
-        <!--  REMOVE THIS LINE IF YOU USE JPA
+        <!-- REMOVE THIS LINE IF YOU USE JPA
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-jpa</artifactId>
@@ -150,8 +138,8 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-              REMOVE THIS LINE IF YOU USE JPA  -->
-        <!--  REMOVE THIS LINE IF YOU USE MyBatis3
+             REMOVE THIS LINE IF YOU USE JPA -->
+        <!-- REMOVE THIS LINE IF YOU USE MyBatis3
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-mybatis3</artifactId>
@@ -161,7 +149,32 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-              REMOVE THIS LINE IF YOU USE MyBatis3  -->
+             REMOVE THIS LINE IF YOU USE MyBatis3 -->
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-recommended-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-web-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-web-jsp-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-security-web-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
         <!-- == End TERASOLUNA == -->
 
         <!-- == Begin Tomcat == -->
@@ -173,28 +186,13 @@
         </dependency>
 
         <!-- JavaEE/SE APIs -->
-        <!--  Required only for Tomcat. If run on other J2EE server,
+        <!-- Required only for Tomcat. If run on other J2EE server,
             remove this dependency and use provided tag libraries. -->
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-jstlel</artifactId>
         </dependency>
         <!-- == End Tomcat == -->
-
-        <!-- == Begin Database == -->
-<!--         <dependency> -->
-<!--             <groupId>org.postgresql</groupId> -->
-<!--             <artifactId>postgresql</artifactId> -->
-<!--             <version>${postgresql.version}</version> -->
-<!--             <scope>provided</scope> -->
-<!--         </dependency> -->
-<!--         <dependency> -->
-<!--             <groupId>com.oracle</groupId> -->
-<!--             <artifactId>ojdbc7</artifactId> -->
-<!--             <version>${ojdbc.version}</version> -->
-<!--             <scope>provided</scope> -->
-<!--         </dependency> -->
-        <!-- == End Database == -->
 
         <!-- == Begin Unit Test == -->
         <dependency>
@@ -246,10 +244,7 @@
         <!-- == Maven Plugin Versions == -->
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
-        <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
         <!-- == Dependency Versions == -->
-        <postgresql.version>9.4-1206-jdbc41</postgresql.version>
-        <ojdbc.version>12.1.0.2</ojdbc.version>
         <selenium.version>2.46.0</selenium.version>
         <!-- == Project Properties == -->
         <encoding>UTF-8</encoding>
