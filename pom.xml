@@ -189,6 +189,21 @@
         </dependency>
         <!-- == End Tomcat == -->
 
+        <!-- == Begin Database == -->
+<!--        <dependency> -->
+<!--            <groupId>org.postgresql</groupId> -->
+<!--            <artifactId>postgresql</artifactId> -->
+<!--            <version>${postgresql.version}</version> -->
+<!--            <scope>runtime</scope> -->
+<!--        </dependency> -->
+<!--        <dependency> -->
+<!--            <groupId>com.oracle</groupId> -->
+<!--            <artifactId>ojdbc7</artifactId> -->
+<!--            <version>${ojdbc.version}</version> -->
+<!--            <scope>runtime</scope> -->
+<!--        </dependency> -->
+        <!-- == End Database == -->
+
         <!-- == Begin Unit Test == -->
         <dependency>
             <groupId>junit</groupId>
@@ -240,6 +255,8 @@
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
+        <postgresql.version>9.4-1206-jdbc41</postgresql.version>
+        <ojdbc.version>12.1.0.2</ojdbc.version>
         <selenium.version>2.46.0</selenium.version>
         <!-- == Project Properties == -->
         <encoding>UTF-8</encoding>
