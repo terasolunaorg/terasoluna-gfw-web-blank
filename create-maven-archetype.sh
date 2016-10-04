@@ -10,7 +10,7 @@ mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/M
 mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
 
 # if JPA or Mybatis3 is used
-if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
+if [ -e src/main/resources/META-INF/spring/projectName-env.xml ]; then
   mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
 else
   startLine=`sed -n '/Begin Database/=' pom.xml`
@@ -19,11 +19,11 @@ else
   sed -i '/<postgresql.version>/d' pom.xml
   sed -i '/<ojdbc.version>/d' pom.xml
 fi
-if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ];then
+if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ]; then
   mv src/main/resources/META-INF/spring/projectName-infra.properties src/main/resources/META-INF/spring/__artifactId__-infra.properties
 fi
 
-if [ -d src/main/resources/xxxxxx ];then
+if [ -d src/main/resources/xxxxxx ]; then
   echo "rename to __packageInPathFormat__"
   mkdir -p src/main/resources/__packageInPathFormat__
   mv src/main/resources/xxxxxx/yyyyyy/zzzzzz/domain src/main/resources/__packageInPathFormat__/
