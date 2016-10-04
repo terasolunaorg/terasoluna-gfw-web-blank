@@ -10,20 +10,14 @@ mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/M
 mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
 
 # if JPA or Mybatis3 is used
-if [ -e src/main/resources/META-INF/spring/projectName-env.xml ]; then
+if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
   mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
-else
-  startLine=`sed -n '/Begin Database/=' pom.xml`
-  endLine=`sed -n '/End Database/=' pom.xml`
-  sed -i $startLine','$endLine'd' pom.xml
-  sed -i '/<postgresql.version>/d' pom.xml
-  sed -i '/<ojdbc.version>/d' pom.xml
 fi
-if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ]; then
+if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ];then
   mv src/main/resources/META-INF/spring/projectName-infra.properties src/main/resources/META-INF/spring/__artifactId__-infra.properties
 fi
 
-if [ -d src/main/resources/xxxxxx ]; then
+if [ -d src/main/resources/xxxxxx ];then
   echo "rename to __packageInPathFormat__"
   mkdir -p src/main/resources/__packageInPathFormat__
   mv src/main/resources/xxxxxx/yyyyyy/zzzzzz/domain src/main/resources/__packageInPathFormat__/
@@ -44,6 +38,15 @@ pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
 sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
+
+# if JPA or Mybatis3 is used
+if [ -e src/main/resources/META-INF/spring/__artifactId__-env.xml ];then
+  startLine=`sed -n '/Begin Database/=' pom.xml`
+  endLine=`sed -n '/End Database/=' pom.xml`
+  sed -i $startLine','$endLine'd' pom.xml
+  sed -i '/<postgresql.version>/d' pom.xml
+  sed -i '/<ojdbc.version>/d' pom.xml
+fi
 
 if [ "$1" = "central" ]; then
   # add plugins to deploy to Maven Central Repository
