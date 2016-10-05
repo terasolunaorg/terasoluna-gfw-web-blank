@@ -9,16 +9,15 @@ mv src/main/resources/META-INF/spring/projectName-domain.xml src/main/resources/
 mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/META-INF/spring/__artifactId__-infra.xml
 mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
 
-cat pom.xml
-startLine=`sed -n '/Begin Database/=' pom.xml`
-endLine=`sed -n '/End Database/=' pom.xml`
-sed -i $startLine','$endLine'd' pom.xml
-sed -i '/<postgresql.version>/d' pom.xml
-sed -i '/<ojdbc.version>/d' pom.xml
-
 # if JPA or Mybatis3 is used
 if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
   mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
+else
+  startLine=`sed -n '/Begin Database/=' pom.xml`
+  endLine=`sed -n '/End Database/=' pom.xml`
+  sed -e $startLine','$endLine'd' pom.xml
+  sed -e '/<postgresql.version>/d' pom.xml
+  sed -e '/<ojdbc.version>/d' pom.xml
 fi
 if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ];then
   mv src/main/resources/META-INF/spring/projectName-infra.properties src/main/resources/META-INF/spring/__artifactId__-infra.properties
