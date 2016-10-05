@@ -9,6 +9,16 @@ mv src/main/resources/META-INF/spring/projectName-domain.xml src/main/resources/
 mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/META-INF/spring/__artifactId__-infra.xml
 mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
 
+pwd
+ll pom.xml
+cat pom.xml
+startLine=`sed -n '/Begin Database/=' pom.xml`
+endLine=`sed -n '/End Database/=' pom.xml`
+sed -e $startLine','$endLine'd' pom.xml
+sed -e '/<postgresql.version>/d' pom.xml
+sed -e '/<ojdbc.version>/d' pom.xml
+cat pom.xml
+
 # if JPA or Mybatis3 is used
 if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
   mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
@@ -36,15 +46,8 @@ mvn archetype:create-from-project ${PROFILE}
 
 pushd target/generated-sources/archetype
 
-cat pom.xml
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
 sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
-startLine=`sed -n '/Begin Database/=' pom.xml`
-endLine=`sed -n '/End Database/=' pom.xml`
-sed -e $startLine','$endLine'd' pom.xml
-sed -e '/<postgresql.version>/d' pom.xml
-sed -e '/<ojdbc.version>/d' pom.xml
-cat pom.xml
 
 if [ "$1" = "central" ]; then
   # add plugins to deploy to Maven Central Repository
