@@ -1,6 +1,16 @@
 #!/bin/sh
 rm -rf ./tmp
 mkdir tmp
+
+# if JPA or Mybatis3 is not used,remove database info
+if [ ! -d src/main/resources/database ]; then
+  startLine=`sed -n '/Begin Database/=' pom.xml`
+  endLine=`sed -n '/End Database/=' pom.xml`
+  sed -i -e $startLine','$endLine'd' pom.xml
+  sed -i -e '/postgresql.version/d' pom.xml
+  sed -i -e '/ojdbc.version/d' pom.xml
+fi
+
 cp -r src pom.xml tmp
 pushd tmp
 
@@ -75,12 +85,3 @@ mvn deploy
 
 popd
 popd
-
-# if JPA or Mybatis3 is not used,remove database info
-if [ ! -d src/main/resources/database ]; then
-  startLine=`sed -n '/Begin Database/=' pom.xml`
-  endLine=`sed -n '/End Database/=' pom.xml`
-  sed -i -e $startLine','$endLine'd' pom.xml
-  sed -i -e '/postgresql.version/d' pom.xml
-  sed -i -e '/ojdbc.version/d' pom.xml
-fi
