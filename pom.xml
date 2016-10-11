@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.terasoluna.gfw.blank</groupId>
     <artifactId>terasoluna-gfw-web-blank</artifactId>
     <version>5.2.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
-    <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
-    <url>http://terasoluna.org</url>
-    <inceptionYear>2013</inceptionYear>
-
     <parent>
         <groupId>org.terasoluna.gfw</groupId>
         <artifactId>terasoluna-gfw-parent</artifactId>
@@ -18,6 +13,21 @@
         <relativePath />
     </parent>
 
+    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Project</name>
+    <description>Web Blank Project using TERASOLUNA Server Framework for Java (5.x)</description>
+    <url>http://terasoluna.org</url>
+    <inceptionYear>2013</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>TERASOLUNA Framework Team</name>
+        <url>http://terasoluna.org</url>
+    </organization>
     <repositories>
         <repository>
             <releases>
@@ -40,7 +50,6 @@
             <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-snapshots/</url>
         </repository>
     </repositories>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -91,13 +100,12 @@
                         </archive>
                     </configuration>
                 </plugin>
-
             </plugins>
         </pluginManagement>
     </build>
 
     <dependencies>
-        <!-- TERASOLUNA -->
+        <!-- == Begin TERASOLUNA == -->
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-common-dependencies</artifactId>
@@ -162,8 +170,10 @@
             <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
             <type>pom</type>
         </dependency>
+        <!-- == End TERASOLUNA == -->
 
-        <!-- Servlet API/ JSP API -->
+        <!-- == Begin Tomcat == -->
+        <!-- Servlet API 3.0 & JSP API 2.2 -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
@@ -171,26 +181,38 @@
         </dependency>
 
         <!-- JavaEE/SE APIs -->
-        <!-- Required only for Tomcat. If run on other J2EE server, remove 
-            this dependency and use provided tag libraries. -->
+        <!-- Required only for Tomcat. If run on other J2EE server,
+            remove this dependency and use provided tag libraries. -->
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-jstlel</artifactId>
         </dependency>
+        <!-- == End Tomcat == -->
 
-        <!-- Coding Support -->
-        <!-- 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-         -->
+        <!-- == Begin Database == -->
+<!--        <dependency> -->
+<!--            <groupId>org.postgresql</groupId> -->
+<!--            <artifactId>postgresql</artifactId> -->
+<!--            <version>${postgresql.version}</version> -->
+<!--            <scope>runtime</scope> -->
+<!--        </dependency> -->
+<!--        <dependency> -->
+<!--            <groupId>com.oracle</groupId> -->
+<!--            <artifactId>ojdbc7</artifactId> -->
+<!--            <version>${ojdbc.version}</version> -->
+<!--            <scope>runtime</scope> -->
+<!--        </dependency> -->
+        <!-- == End Database == -->
 
-        <!-- Test -->
+        <!-- == Begin Unit Test == -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -214,6 +236,18 @@
             <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- == End Unit Test == -->
+
+        <!-- == Begin Coding Support == -->
+        <!--
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        -->
+        <!-- == End Coding Support == -->
+
     </dependencies>
 
     <properties>
@@ -221,10 +255,11 @@
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
+        <postgresql.version>9.4-1206-jdbc41</postgresql.version>
+        <ojdbc.version>12.1.0.2</ojdbc.version>
         <selenium.version>2.46.0</selenium.version>
         <!-- == Project Properties == -->
         <encoding>UTF-8</encoding>
         <java-version>1.8</java-version>
     </properties>
-
 </project>
