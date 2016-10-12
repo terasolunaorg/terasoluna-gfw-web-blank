@@ -215,7 +215,6 @@
     </dependencies>
 
     <properties>
-        <encoding>UTF-8</encoding>
         <java-version>1.7</java-version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <postgresql.version>9.4-1206-jdbc41</postgresql.version>
