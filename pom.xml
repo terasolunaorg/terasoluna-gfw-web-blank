@@ -86,26 +86,25 @@
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>${maven-war-plugin.version}</version>
-                    <configuration>
-                        <warName>${project.artifactId}</warName>
-                        <archive>
-                            <addMavenDescriptor>false</addMavenDescriptor>
-                            <manifest>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <dependencies>
         <!-- == Begin TERASOLUNA == -->
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-web-jsp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.terasoluna.gfw</groupId>
+            <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.terasoluna.gfw</groupId>
             <artifactId>terasoluna-gfw-common</artifactId>
@@ -145,19 +144,6 @@
             <artifactId>terasoluna-gfw-recommended-dependencies</artifactId>
             <type>pom</type>
         </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-web-jsp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-security-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.terasoluna.gfw</groupId>
-            <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
         <!-- == End TERASOLUNA == -->
 
         <!-- == Begin Tomcat == -->
@@ -166,14 +152,6 @@
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
             <scope>provided</scope>
-        </dependency>
-
-        <!-- JavaEE/SE APIs -->
-        <!-- Required only for Tomcat. If run on other J2EE server,
-            remove this dependency and use provided tag libraries. -->
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-jstlel</artifactId>
         </dependency>
         <!-- == End Tomcat == -->
 
@@ -221,7 +199,6 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- == End Unit Test == -->
@@ -239,15 +216,9 @@
     </dependencies>
 
     <properties>
-        <!-- == Maven Plugin Versions == -->
-        <maven-war-plugin.version>2.5</maven-war-plugin.version>
+        <java-version>1.8</java-version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
-        <!-- == Dependency Versions == -->
         <postgresql.version>9.4-1206-jdbc41</postgresql.version>
         <ojdbc.version>12.1.0.2</ojdbc.version>
-        <selenium.version>2.46.0</selenium.version>
-        <!-- == Project Properties == -->
-        <encoding>UTF-8</encoding>
-        <java-version>1.8</java-version>
     </properties>
 </project>
