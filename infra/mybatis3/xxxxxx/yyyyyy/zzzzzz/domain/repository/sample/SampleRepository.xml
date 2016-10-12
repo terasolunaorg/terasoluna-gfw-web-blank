@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xxxxxx.yyyyyy.zzzzzz.domain.repository.sample.SampleRepository">
@@ -16,12 +16,12 @@
     <select id="findOne" parameterType="string" resultMap="todoResultMap">
     <![CDATA[
         SELECT
-            todo_id,
-            todo_title,
-            finished,
-            created_at
+            todo_id, 
+            todo_title, 
+            finished, 
+            created_at 
         FROM
-            todo
+            todo 
         WHERE
             todo_id = #{todoId}
     ]]>
@@ -30,12 +30,12 @@
     <select id="findAll" resultMap="todoResultMap">
     <![CDATA[
         SELECT
-            todo_id,
-            todo_title,
-            finished,
-            created_at
+            todo_id, 
+            todo_title, 
+            finished, 
+            created_at 
         FROM
-            todo
+            todo 
     ]]>
     </select>
 
@@ -43,16 +43,16 @@
     <![CDATA[
         INSERT INTO todo
         (
-            todo_id,
-            todo_title,
-            finished,
+            todo_id, 
+            todo_title, 
+            finished, 
             created_at
-        )
+        ) 
         VALUES
         (
-            #{todoId},
-            #{todoTitle},
-            #{finished},
+            #{todoId}, 
+            #{todoTitle}, 
+            #{finished}, 
             #{createdAt}
         )
     ]]>
@@ -61,11 +61,11 @@
     <update id="update" parameterType="Todo">
     <![CDATA[
         UPDATE
-            todo
+            todo 
         SET
-            todo_title = #{todoTitle},
-            finished = #{finished},
-            created_at = #{createdAt}
+            todo_title = #{todoTitle}, 
+            finished = #{finished}, 
+            created_at = #{createdAt} 
         WHERE
             todo_id = #{todoId}
     ]]>
@@ -73,7 +73,7 @@
 
     <delete id="delete" parameterType="Todo">
     <![CDATA[
-        DELETE FROM todo
+        DELETE FROM todo 
         WHERE
             todo_id = #{todoId}
     ]]>
@@ -84,7 +84,7 @@
         SELECT
             COUNT(*)
         FROM
-            todo
+            todo 
         WHERE
             finished = #{finished}
     ]]>
@@ -95,7 +95,7 @@
         SELECT
             COUNT(*)
         FROM
-            todo
+            todo 
         WHERE
             todo_id = #{todoId}
     ]]>
