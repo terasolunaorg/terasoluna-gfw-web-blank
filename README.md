@@ -16,7 +16,7 @@ There are two ways to get started. Download or use maven archetype to let it dow
 ### Use maven archetype
 
 Quickly create your blank project using maven archetype of TERASOLUNA Server Framework for Java (5.x).
-Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
+Execute `mvn archetype:generate <options>`.
 
 
 #### a blank project without any DB configuration
@@ -27,20 +27,18 @@ To create a plain blank project
 
 ``` console
 mvn archetype:generate^
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 ##### for Bash
 
 ``` console
 mvn archetype:generate\
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 #### a blank project with MyBatis3
@@ -51,20 +49,18 @@ To create a blank project with MyBatis3
 
 ``` console
 mvn archetype:generate^
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype^
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 ##### for Bash
 
 ``` console
 mvn archetype:generate\
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype\
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 #### a blank project with JPA (Spring Data JPA)
@@ -75,20 +71,18 @@ To create a blank project with JPA (Spring Data JPA)
 
 ``` console
 mvn archetype:generate^
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 ##### for Bash
 
 ``` console
 mvn archetype:generate\
- -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=5.2.0.RELEASE
+ -DarchetypeVersion=5.2.1.RELEASE
 ```
 
 ### Download
