@@ -16,7 +16,7 @@ There are two ways to get started. Download or use maven archetype to let it dow
 ### Use maven archetype
 
 Quickly create your blank project using maven archetype of TERASOLUNA Server Framework for Java (5.x).
-Execute `mvn archetype:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
+Execute `mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases <options>`.
 
 
 #### a blank project without any DB configuration
@@ -26,7 +26,7 @@ To create a plain blank project
 ##### for CommandPrompt
 
 ``` console
-mvn archetype:generate^
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
@@ -36,7 +36,7 @@ mvn archetype:generate^
 ##### for Bash
 
 ``` console
-mvn archetype:generate\
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
@@ -50,7 +50,7 @@ To create a blank project with MyBatis3
 ##### for CommandPrompt
 
 ``` console
-mvn archetype:generate^
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype^
@@ -60,7 +60,7 @@ mvn archetype:generate^
 ##### for Bash
 
 ``` console
-mvn archetype:generate\
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype\
@@ -74,7 +74,7 @@ To create a blank project with JPA (Spring Data JPA)
 ##### for CommandPrompt
 
 ``` console
-mvn archetype:generate^
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate^
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
@@ -84,7 +84,7 @@ mvn archetype:generate^
 ##### for Bash
 
 ``` console
-mvn archetype:generate\
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate\
  -DarchetypeCatalog=http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
