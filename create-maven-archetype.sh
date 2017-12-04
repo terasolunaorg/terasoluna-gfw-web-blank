@@ -36,4 +36,8 @@ pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
 sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
-mvn deploy
+if [ "$1" = "deploy" ]; then
+  mvn deploy
+else
+  mvn install
+fi
