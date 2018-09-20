@@ -244,6 +244,16 @@
         </dependency>
         <!-- == End Unit Test == -->
 
+        <!-- == Begin Password Encode == -->
+        <!--
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
+        -->
+        <!-- == End Password Encode == -->
+
         <!-- == Begin Coding Support == -->
         <!--
         <dependency>
@@ -265,6 +275,7 @@
         <ojdbc.version>12.1.0.2</ojdbc.version>
         <dbunit.version>2.5.4</dbunit.version>
         <spring.test.dbunit.version>1.3.0</spring.test.dbunit.version>
+        <bouncycastle.version>1.59</bouncycastle.version>
         <!-- == Project Properties == -->
         <java-version>1.8</java-version>
     </properties>
