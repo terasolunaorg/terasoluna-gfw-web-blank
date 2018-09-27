@@ -245,6 +245,7 @@
         <!-- == End Unit Test == -->
 
         <!-- == Begin Password Encode == -->
+        <!-- Please remove comment out when using SCryptPasswordEncoder. -->
         <!--
         <dependency>
             <groupId>org.bouncycastle</groupId>
