@@ -163,6 +163,17 @@
         </dependency>
         <!-- == End TERASOLUNA == -->
 
+        <!-- == Begin Password Encode == -->
+        <!-- Please remove comment out when using SCryptPasswordEncoder. -->
+        <!--
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
+        -->
+        <!-- == End Password Encode == -->
+
         <!-- == Begin Tomcat == -->
         <!-- Servlet API 3.0 & JSP API 2.2 -->
         <dependency>
@@ -243,17 +254,6 @@
             <scope>test</scope>
         </dependency>
         <!-- == End Unit Test == -->
-
-        <!-- == Begin Password Encode == -->
-        <!-- Please remove comment out when using SCryptPasswordEncoder. -->
-        <!--
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>${bouncycastle.version}</version>
-        </dependency>
-        -->
-        <!-- == End Password Encode == -->
 
         <!-- == Begin Coding Support == -->
         <!--
