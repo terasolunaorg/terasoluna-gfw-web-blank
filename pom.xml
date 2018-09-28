@@ -163,7 +163,7 @@
         </dependency>
         <!-- == End TERASOLUNA == -->
 
-        <!-- == Begin Password Encode == -->
+        <!-- == Begin Security == -->
         <!-- Please remove comment out when using SCryptPasswordEncoder. -->
         <!--
         <dependency>
@@ -172,7 +172,7 @@
             <version>${bouncycastle.version}</version>
         </dependency>
         -->
-        <!-- == End Password Encode == -->
+        <!-- == End Security == -->
 
         <!-- == Begin Tomcat == -->
         <!-- Servlet API 3.0 & JSP API 2.2 -->
