@@ -233,7 +233,9 @@
             <scope>test</scope>
         </dependency>
         -->
+        <!-- == End Unit Test == -->
 
+        <!-- == Begin E2E Test == -->
         <!-- Please set the appropriate version according to the web browser. -->
         <!-- Depending on the version of Selenium, it is necessary to prepare a webdriver suitable for the browser. -->
         <dependency>
@@ -284,7 +286,7 @@
             <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- == End Unit Test == -->
+        <!-- == End E2E Test == -->
 
         <!-- == Begin Coding Support == -->
         <!--
