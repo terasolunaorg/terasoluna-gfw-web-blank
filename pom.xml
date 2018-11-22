@@ -266,6 +266,7 @@
         <dbunit.version>2.5.4</dbunit.version>
         <spring.test.dbunit.version>1.3.0</spring.test.dbunit.version>
         <!-- == Project Properties == -->
+        <encoding>UTF-8</encoding>
         <java-version>1.8</java-version>
     </properties>
 </project>
