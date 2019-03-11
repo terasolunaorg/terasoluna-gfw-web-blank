@@ -187,7 +187,7 @@
 <!--        </dependency> -->
 <!--        <dependency> -->
 <!--            <groupId>com.oracle.jdbc</groupId> -->
-<!--            <artifactId>ojdbc7</artifactId> -->
+<!--            <artifactId>ojdbc8</artifactId> -->
 <!--            <version>${ojdbc.version}</version> -->
 <!--            <scope>runtime</scope> -->
 <!--        </dependency> -->
@@ -259,8 +259,8 @@
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
-        <postgresql.version>42.2.4</postgresql.version>
-        <ojdbc.version>12.1.0.2</ojdbc.version>
+        <postgresql.version>42.2.5</postgresql.version>
+        <ojdbc.version>18.3</ojdbc.version>
         <dbunit.version>2.5.4</dbunit.version>
         <spring.test.dbunit.version>1.3.0</spring.test.dbunit.version>
         <bouncycastle.version>1.59</bouncycastle.version>
