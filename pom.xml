@@ -241,6 +241,14 @@
         -->
         <!-- == End Coding Support == -->
 
+        <!-- == Resolve ExpressionFactory == -->
+        <dependency>
+            <groupId>com.sun.el</groupId>
+            <artifactId>el-ri</artifactId>
+            <version>${com.sun.el.version}</version>
+        </dependency>
+        <!-- == End Resolve ExpressionFactory == -->
+
     </dependencies>
 
     <properties>
@@ -252,6 +260,7 @@
         <ojdbc.version>19.3.0.0</ojdbc.version>
         <dbunit.version>2.5.4</dbunit.version>
         <spring.test.dbunit.version>1.3.0</spring.test.dbunit.version>
+        <com.sun.el.version>1.0</com.sun.el.version>
         <!-- == Project Properties == -->
         <encoding>UTF-8</encoding>
         <java-version>1.8</java-version>
