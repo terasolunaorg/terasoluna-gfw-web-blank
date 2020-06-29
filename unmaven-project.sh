@@ -30,7 +30,6 @@ BUILDXML=build.xml
 download_jars() {
     rm -rf $WEBINFLIB $LIBSRC $TESTLIB
     mvn dependency:copy-dependencies -DoutputDirectory=$WEBINFLIB -DincludeScope=runtime -DexcludeTypes=pom
-    mvn dependency:copy-dependencies -DoutputDirectory=$LIBSRC -DincludeScope=runtime -DexcludeTypes=pom -Dclassifier=sources
     mvn dependency:copy-dependencies -DoutputDirectory=$TESTLIB -DexcludeScope=runtime -DexcludeTypes=pom
     mvn dependency:copy-dependencies -DoutputDirectory=$LIBSRC -DexcludeTypes=pom -Dclassifier=sources
     echo $? > /dev/null
