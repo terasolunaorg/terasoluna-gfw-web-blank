@@ -28,7 +28,7 @@ BUILDXML=build.xml
 ##-------------------------
 
 download_jars() {
-    rm -rf $WEBINFLIB $LIBSRC $TESTLIB
+    rm -rf $WEBINFLIB $TESTLIB $LIBSRC
     mvn dependency:copy-dependencies -DoutputDirectory=$WEBINFLIB -DincludeScope=runtime -DexcludeTypes=pom
     mvn dependency:copy-dependencies -DoutputDirectory=$TESTLIB -DexcludeScope=runtime -DexcludeTypes=pom
     mvn dependency:copy-dependencies -DoutputDirectory=$LIBSRC -DexcludeTypes=pom -Dclassifier=sources
