@@ -66,7 +66,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>${maven-war-plugin.version}</version>
+                <version>${org.apache.maven.plugins.maven-war-plugin.version}</version>
                 <configuration>
                     <warName>${project.artifactId}</warName>
                     <archive>
@@ -245,7 +245,7 @@
 
     <properties>
         <!-- == Maven Plugin Versions == -->
-        <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
+        <org.apache.maven.plugins.maven-war-plugin.version>3.3.1</org.apache.maven.plugins.maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>3.2.0</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
         <postgresql.version>42.2.9</postgresql.version>
