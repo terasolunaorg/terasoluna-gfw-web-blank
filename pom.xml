@@ -223,6 +223,11 @@
             <version>${spring.test.dbunit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <scope>test</scope>
+        </dependency>
         -->
 
         <!-- Please set the appropriate version according to the web browser. -->
