@@ -3,6 +3,7 @@ target
 .classpath
 .project
 .springBeans
+.factorypath
 *~
 .idea
 .DS_Store
