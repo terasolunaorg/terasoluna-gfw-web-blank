@@ -1,13 +1,17 @@
 #!/bin/sh
-sh create-maven-archetype-javaconfig-jsp-jpa.sh
-sh create-maven-archetype-javaconfig-jsp-mybatis3.sh
-sh create-maven-archetype-javaconfig-jsp-nodb.sh
-sh create-maven-archetype-javaconfig-thymeleaf-jpa.sh
-sh create-maven-archetype-javaconfig-thymeleaf-mybatis3.sh
-sh create-maven-archetype-javaconfig-thymeleaf-nodb.sh
-sh create-maven-archetype-xmlconfig-jsp-jpa.sh
-sh create-maven-archetype-xmlconfig-jsp-mybatis3.sh
-sh create-maven-archetype-xmlconfig-jsp-nodb.sh
-sh create-maven-archetype-xmlconfig-thymeleaf-jpa.sh
-sh create-maven-archetype-xmlconfig-thymeleaf-mybatis3.sh
-sh create-maven-archetype-xmlconfig-thymeleaf-nodb.sh
+
+DEPLOY=$1
+REPOSITORY=$2
+
+sh create-maven-archetype-javaconfig-jsp-jpa.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-javaconfig-jsp-mybatis3.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-javaconfig-jsp-nodb.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-javaconfig-thymeleaf-jpa.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-javaconfig-thymeleaf-mybatis3.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-javaconfig-thymeleaf-nodb.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-jsp-jpa.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-jsp-mybatis3.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-jsp-nodb.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-thymeleaf-jpa.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-thymeleaf-mybatis3.sh "$DEPLOY" "$REPOSITORY"
+sh create-maven-archetype-xmlconfig-thymeleaf-nodb.sh "$DEPLOY" "$REPOSITORY"
