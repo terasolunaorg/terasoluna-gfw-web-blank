@@ -1,7 +1,7 @@
 #!/bin/sh
 CONFIG=JavaConfig
 VIEW=JSP
-ORM=MyBatis3
+ORM=NoORM
 DEPLOY=$1
 REPOSITORY=$2
 

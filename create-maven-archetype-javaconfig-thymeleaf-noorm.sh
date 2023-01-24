@@ -1,7 +1,7 @@
 #!/bin/sh
 CONFIG=JavaConfig
-VIEW=JSP
-ORM=MyBatis3
+VIEW=Thymeleaf
+ORM=NoORM
 DEPLOY=$1
 REPOSITORY=$2
 

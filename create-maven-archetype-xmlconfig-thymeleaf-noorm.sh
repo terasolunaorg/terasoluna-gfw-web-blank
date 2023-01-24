@@ -1,7 +1,7 @@
 #!/bin/sh
 CONFIG=XMLConfig
-VIEW=JSP
-ORM=JPA
+VIEW=Thymeleaf
+ORM=NoORM
 DEPLOY=$1
 REPOSITORY=$2
 

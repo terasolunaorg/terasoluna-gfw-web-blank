@@ -1,14 +1,14 @@
 #!/bin/sh
 CONFIG=$1
 VIEW=$2
-DB=$3
+ORM=$3
 DEPRLOY=$4
 REPOSITORY=$5
-if [ $DB != "NoDB" ]; then
+if [ $ORM != "NoORM" ]; then
   if [ "$CONFIG" = "JavaConfig" ]; then
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${VIEW,,}-${DB,,}
+    ARTIFACT_ID=terasoluna-gfw-web-blank-${VIEW,,}-${ORM,,}
   else
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${CONFIG,,}-${VIEW,,}-${DB,,}
+    ARTIFACT_ID=terasoluna-gfw-web-blank-${CONFIG,,}-${VIEW,,}-${ORM,,}
   fi
 else
   if [ "$CONFIG" = "JavaConfig" ]; then
@@ -29,13 +29,13 @@ cp -r parts/base/src tmp
 
 cp -r  parts/$CONFIG/projectName-*/src tmp
 
-if [ $DB != "NoDB" ]; then
-  cp -r  parts/UseDB/projectName-env/src tmp
+if [ $ORM != "NoORM" ]; then
+  cp -r  parts/UseORM/projectName-env/src tmp
 fi
 
-cp -r  parts/$CONFIG-$DB/projectName-domain/src tmp
-if [ $DB = "MyBatis3" ]; then
-  cp -r  parts/$DB/projectName-domain/src tmp
+cp -r  parts/$CONFIG-$ORM/projectName-domain/src tmp
+if [ $ORM = "MyBatis3" ]; then
+  cp -r  parts/$ORM/projectName-domain/src tmp
 fi
 
 cp -r  parts/$CONFIG-$VIEW/projectName-web/src tmp
@@ -46,9 +46,9 @@ cp -r  parts/$VIEW/projectName-web/src tmp
 pushd tmp
 
 # rename Project discription
-sed -i -e "s/Web Blank Project/Web Blank Project (${CONFIG})(${VIEW})(${DB})/g" pom.xml
+sed -i -e "s/Web Blank Project/Web Blank Project (${CONFIG})(${VIEW})(${ORM})/g" pom.xml
 
-if [ $DB = "NoDB" ]; then
+if [ $ORM = "NoORM" ]; then
   if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
     rm -f src/main/resources/META-INF/spring/projectName-env.xml
   fi
@@ -87,8 +87,8 @@ if [ -d src/main/resources/xxxxxx ];then
   rm -rf src/main/resources/xxxxxx
 fi
 
-sed -i -e "/REMOVE THIS LINE IF YOU USE $DB/d" `grep -rIl $DB src pom.xml`
-sed -i -e "s/REMOVE THIS COMMENT IF YOU USE $DB//g" `grep -rIl $DB src pom.xml`
+sed -i -e "/REMOVE THIS LINE IF YOU USE $ORM/d" `grep -rIl $ORM src pom.xml`
+sed -i -e "s/REMOVE THIS COMMENT IF YOU USE $ORM//g" `grep -rIl $ORM src pom.xml`
 
 if [ "$REPOSITORY" = "central" ]; then
   PROFILE="-P central"
