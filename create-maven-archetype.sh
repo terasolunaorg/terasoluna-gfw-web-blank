@@ -4,20 +4,23 @@ VIEW=$2
 ORM=$3
 DEPRLOY=$4
 REPOSITORY=$5
-if [ $ORM != "NoORM" ]; then
-  if [ "$CONFIG" = "JavaConfig" ]; then
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${VIEW,,}-${ORM,,}
-  else
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${CONFIG,,}-${VIEW,,}-${ORM,,}
-  fi
-else
-  if [ "$CONFIG" = "JavaConfig" ]; then
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${VIEW,,}
-  else
-    ARTIFACT_ID=terasoluna-gfw-web-blank-${CONFIG,,}-${VIEW,,}
-  fi
-fi
 
+if [ $VIEW == "JSP" ]; then
+  ARTIFACT_ID_VIEW=""
+else
+  ARTIFACT_ID_VIEW=-${VIEW,,}
+fi
+if [ $ORM == "NoORM" ]; then
+  ARTIFACT_ID_ORM=""
+else
+  ARTIFACT_ID_ORM=-${ORM,,}
+fi
+if [ $CONFIG == "XMLConfig" ]; then
+  ARTIFACT_ID_CONFIG=""
+else
+  ARTIFACT_ID_CONFIG=-${CONFIG,,}
+fi
+ARTIFACT_ID=terasoluna-gfw-web-blank${ARTIFACT_ID_CONFIG}${ARTIFACT_ID_ORM}${ARTIFACT_ID_VIEW}
 echo create $ARTIFACT_ID
 
 # start create tmp directory ###################
