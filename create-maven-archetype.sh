@@ -1,26 +1,84 @@
 #!/bin/sh
+CONFIG=$1
+VIEW=$2
+ORM=$3
+DEPRLOY=$4
+REPOSITORY=$5
+
+if [ $VIEW == "JSP" ]; then
+  ARTIFACT_ID_VIEW=""
+else
+  ARTIFACT_ID_VIEW=-${VIEW,,}
+fi
+if [ $ORM == "NoORM" ]; then
+  ARTIFACT_ID_ORM=""
+else
+  ARTIFACT_ID_ORM=-${ORM,,}
+fi
+if [ $CONFIG == "XMLConfig" ]; then
+  ARTIFACT_ID_CONFIG=""
+else
+  ARTIFACT_ID_CONFIG=-${CONFIG,,}
+fi
+ARTIFACT_ID=terasoluna-gfw-web-blank${ARTIFACT_ID_CONFIG}${ARTIFACT_ID_ORM}${ARTIFACT_ID_VIEW}
+echo create $ARTIFACT_ID
+
+# start create tmp directory ###################
+#rm -rf ./target
 rm -rf ./tmp
 mkdir tmp
-cp -r src pom.xml tmp
+cp -r parts/$VIEW/pom.xml tmp
+cp -r parts/base/src tmp
+
+cp -r  parts/$CONFIG/projectName-*/src tmp
+
+if [ $ORM != "NoORM" ]; then
+  cp -r  parts/UseORM/projectName-env/src tmp
+fi
+
+cp -r  parts/$CONFIG-$ORM/projectName-domain/src tmp
+if [ $ORM = "MyBatis3" ]; then
+  cp -r  parts/$ORM/projectName-domain/src tmp
+fi
+
+cp -r  parts/$CONFIG-$VIEW/projectName-web/src tmp
+cp -r  parts/$VIEW/projectName-web/src tmp
+# end create tmp directory ###################
+
+# start work at tmp ###################
 pushd tmp
 
-# delete database info if JPA or Mybatis3 is not used
-grep "<artifactId>" pom.xml | head -1 | grep -E "jpa|mybatis3" >/dev/null
-if [ $? -ne 0 ]; then
-  sed -i -e '/Begin Database/,/End Database/d' pom.xml
-  sed -i -e '/postgresql.version/d' pom.xml
-  sed -i -e '/ojdbc.version/d' pom.xml
+# rename Project discription
+sed -i -e "s/Web Blank Project/Web Blank Project (${CONFIG})(${VIEW})(${ORM})/g" pom.xml
+
+if [ $ORM = "NoORM" ]; then
+  if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
+    rm -f src/main/resources/META-INF/spring/projectName-env.xml
+  fi
+  if [ -e src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameEnvConfig.java ];then
+    rm -f src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameEnvConfig.java
+  fi
 fi
 
 # rename "projectName" in filename to replace by ${artifactId}
-mv src/main/resources/META-INF/spring/projectName-domain.xml src/main/resources/META-INF/spring/__artifactId__-domain.xml
-mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/META-INF/spring/__artifactId__-infra.xml
-mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
-
-# if JPA or Mybatis3 is used
-if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
-  mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
+if [ "$CONFIG" = "XMLConfig" ]; then
+  mv src/main/resources/META-INF/spring/projectName-domain.xml src/main/resources/META-INF/spring/__artifactId__-domain.xml
+  mv src/main/resources/META-INF/spring/projectName-infra.xml src/main/resources/META-INF/spring/__artifactId__-infra.xml
+  mv src/main/resources/META-INF/spring/projectName-codelist.xml src/main/resources/META-INF/spring/__artifactId__-codelist.xml
+  # if JPA or Mybatis3 is used
+  if [ -e src/main/resources/META-INF/spring/projectName-env.xml ];then
+    mv src/main/resources/META-INF/spring/projectName-env.xml src/main/resources/META-INF/spring/__artifactId__-env.xml
+  fi
+else
+  mv src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameCodeListConfig.java src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/__ProjectName__CodeListConfig.java
+  mv src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameDomainConfig.java src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/__ProjectName__DomainConfig.java
+  mv src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameInfraConfig.java src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/__ProjectName__InfraConfig.java
+  # if JPA or Mybatis3 is used
+  if [ -e src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameEnvConfig.java ];then
+    mv src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/ProjectNameEnvConfig.java src/main/java/xxxxxx/yyyyyy/zzzzzz/config/app/__ProjectName__EnvConfig.java
+  fi
 fi
+
 if [ -e src/main/resources/META-INF/spring/projectName-infra.properties ];then
   mv src/main/resources/META-INF/spring/projectName-infra.properties src/main/resources/META-INF/spring/__artifactId__-infra.properties
 fi
@@ -32,22 +90,22 @@ if [ -d src/main/resources/xxxxxx ];then
   rm -rf src/main/resources/xxxxxx
 fi
 
-sed -i -e "s/org\.terasoluna\.gfw\.blank/xxxxxx.yyyyyy.zzzzzz/g" pom.xml
-sed -i -e "s/terasoluna-gfw-web-blank/projectName/g" pom.xml
+sed -i -e "/REMOVE THIS LINE IF YOU USE $ORM/d" `grep -rIl $ORM src pom.xml`
+sed -i -e "s/REMOVE THIS COMMENT IF YOU USE $ORM//g" `grep -rIl $ORM src pom.xml`
 
-rm -rf `find . -name '.svn' -type d`
-
-if [ "$2" = "central" ]; then
+if [ "$REPOSITORY" = "central" ]; then
   PROFILE="-P central"
 fi
 mvn archetype:create-from-project ${PROFILE}
+# end work at tmp ###################
 
+# start work at tmp target/generated-sources/archetype ###################
 pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
-sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
+sed -i -e "s/projectName/${ARTIFACT_ID}/g" pom.xml
 
-if [ "$2" = "central" ]; then
+if [ "$REPOSITORY" = "central" ]; then
   # add plugins to deploy to Maven Central Repository
   LF=$(printf '\\\012_')
   LF=${LF%_}
@@ -90,11 +148,17 @@ if [ "$2" = "central" ]; then
   sed -i -e "s/  <\/build>/${REPLACEMENT_TAG}/" pom.xml
 fi
 
-if [ "$1" = "deploy" ]; then
+# convert config classes to Camel
+if [ "$CONFIG" = "JavaConfig" ]; then
+  sh ../../../../convert-camelclass.sh
+fi
+
+if [ "$DEPLOY" = "deploy" ]; then
   mvn deploy
 else
   mvn install
 fi
+# end work at tmp target/generated-sources/archetype ###################
 
 popd
 popd
