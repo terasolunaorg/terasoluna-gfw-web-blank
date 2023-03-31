@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
     <artifactId>projectName</artifactId>
-    <version>5.8.0.RELEASE</version>
+    <version>5.8.0.RC1</version>
     <packaging>war</packaging>
     <parent>
         <groupId>org.terasoluna.gfw</groupId>

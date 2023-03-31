@@ -29,7 +29,7 @@ To create a plain blank project(XMLConfig,JSP)
 mvn archetype:generate^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype^
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 ##### for Bash
@@ -38,7 +38,7 @@ mvn archetype:generate^
 mvn archetype:generate\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-archetype\
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 #### a blank project(XMLConfig,JSP) with MyBatis3
@@ -51,7 +51,7 @@ To create a blank project(XMLConfig,JSP) with MyBatis3
 mvn archetype:generate^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype^
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 ##### for Bash
@@ -60,7 +60,7 @@ mvn archetype:generate^
 mvn archetype:generate\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-mybatis3-archetype\
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 #### a blank project(XMLConfig,JSP) with JPA (Spring Data JPA)
@@ -73,7 +73,7 @@ To create a blank project(XMLConfig,JSP) with JPA (Spring Data JPA)
 mvn archetype:generate^
  -DarchetypeGroupId=org.terasoluna.gfw.blank^
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype^
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 ##### for Bash
@@ -82,7 +82,7 @@ mvn archetype:generate^
 mvn archetype:generate\
  -DarchetypeGroupId=org.terasoluna.gfw.blank\
  -DarchetypeArtifactId=terasoluna-gfw-web-blank-jpa-archetype\
- -DarchetypeVersion=5.8.0.RELEASE
+ -DarchetypeVersion=5.8.0.RC1
 ```
 
 ### Download
