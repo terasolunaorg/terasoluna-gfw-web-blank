@@ -1,3 +1,4 @@
+set -e
 #!/bin/sh
 
 # export DIRNAME=`dirname \`pwd\``-`date '+%Y%m%d'`
