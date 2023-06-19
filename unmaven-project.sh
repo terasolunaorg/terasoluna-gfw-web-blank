@@ -1,5 +1,5 @@
-set -e
 #!/bin/sh
+set -e
 
 ##-------------------------
 ## configurable params

@@ -1,5 +1,5 @@
-set -e
 #!/bin/sh
+set -e
 
 # export DIRNAME=`dirname \`pwd\``-`date '+%Y%m%d'`
 export DIRNAME=`dirname \`pwd\``-$VERSION
