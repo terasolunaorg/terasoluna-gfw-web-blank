@@ -39,8 +39,8 @@ public class HelloIT {
 
         webDriver.get(applicationContextUrl);
 
-        assertThat(webDriver.findElement(By.id("title")).getText(),
-                is("Hello world!"));
+        assertThat(webDriver.findElement(By.id("title")).getText(), is(
+                "Hello world!"));
     }
 
     /**
