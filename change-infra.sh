@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 MODE=$1
 KEYWORD="REMOVE THIS LINE IF YOU USE $1"
 TARGET="src pom.xml"
@@ -6,6 +8,7 @@ DIRNAME=`echo $MODE | tr "[:upper:]" "[:lower:]"`
 
 echo "change to $MODE"
 
+rm -rf tmp
 mkdir tmp
 cp -r infra/$DIRNAME/* tmp/
 cp -r infra/common/* tmp/
