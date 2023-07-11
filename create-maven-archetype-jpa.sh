@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 sh change-infra.sh JPA
 sed -i -e "s/terasoluna-gfw-web-blank/terasoluna-gfw-web-blank-jpa/g" pom.xml
 sed -i -e "s/terasoluna-gfw-web-blank/terasoluna-gfw-web-blank-jpa/g" create-maven-archetype.sh
