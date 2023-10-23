@@ -6,6 +6,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.terasoluna.gfw.common.exception.ExceptionLogger;
 import org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor;
 
@@ -14,6 +15,8 @@ import org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor;
  */
 @Configuration
 @ComponentScan(basePackages = {"xxxxxx.yyyyyy.zzzzzz.domain"})
+@Import({ ProjectNameInfraConfig.class,
+    ProjectNameCodeListConfig.class })
 public class ProjectNameDomainConfig {
 
     /**
