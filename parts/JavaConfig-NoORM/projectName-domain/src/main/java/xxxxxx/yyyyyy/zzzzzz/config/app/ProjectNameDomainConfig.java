@@ -14,7 +14,7 @@ import org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor;
  * Bean definitions for domain layer.
  */
 @Configuration
-@ComponentScan(basePackages = {"xxxxxx.yyyyyy.zzzzzz.domain"})
+@ComponentScan(basePackages = { "xxxxxx.yyyyyy.zzzzzz.domain" })
 @Import({ ProjectNameInfraConfig.class,
     ProjectNameCodeListConfig.class })
 public class ProjectNameDomainConfig {
@@ -22,11 +22,12 @@ public class ProjectNameDomainConfig {
     /**
      * Configure messages logging AOP.
      * @param exceptionLogger Bean defined by ApplicationContext#exceptionLogger
-     * @see xxxxxx.yyyyyy.zzzzzz.config.app.ApplicationContext#exceptionLogger(ExceptionCodeResolver)
+     * @see xxxxxx.yyyyyy.zzzzzz.config.app.ApplicationContext#exceptionLogger()
      * @return Bean of configured {@link ResultMessagesLoggingInterceptor}
      */
     @Bean("resultMessagesLoggingInterceptor")
-    public ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor(ExceptionLogger exceptionLogger) {
+    public ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor(
+            ExceptionLogger exceptionLogger) {
         ResultMessagesLoggingInterceptor bean = new ResultMessagesLoggingInterceptor();
         bean.setExceptionLogger(exceptionLogger);
         return bean;
@@ -39,9 +40,11 @@ public class ProjectNameDomainConfig {
      * @return Advisor configured for PointCut
      */
     @Bean
-    public Advisor resultMessagesLoggingInterceptorAdvisor(ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor) {
-       AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-       pointcut.setExpression("@within(org.springframework.stereotype.Service)");
-       return new DefaultPointcutAdvisor(pointcut, resultMessagesLoggingInterceptor);
+    public Advisor resultMessagesLoggingInterceptorAdvisor(
+            ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor) {
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+        pointcut.setExpression(
+                "@within(org.springframework.stereotype.Service)");
+        return new DefaultPointcutAdvisor(pointcut, resultMessagesLoggingInterceptor);
     }
 }
