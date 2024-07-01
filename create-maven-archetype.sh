@@ -5,6 +5,10 @@ DEPLOY=$1
 REPOSITORY=$2
 ORM=$3
 
+if [ -z ${ORM} ]; then
+  ORM="NoORM"
+fi
+
 KEYWORD="REMOVE THIS LINE IF YOU USE ${ORM}"
 TARGET="src pom.xml"
 
@@ -15,7 +19,7 @@ cp -r pom.xml tmp
 cp -r src tmp
 
 # artifactId
-if [ $ORM != "NoORM" ]; then
+if [ "${ORM}" != "NoORM" ]; then
   ARTIFACT_ID=terasoluna-gfw-web-blank-${ORM,,}
 else
   ARTIFACT_ID=terasoluna-gfw-web-blank
@@ -23,19 +27,19 @@ fi
 echo create ${ARTIFACT_ID}
 
 # copy infra
-if [ ${ORM} != "NoORM" ]; then
+if [ "${ORM}" != "NoORM" ]; then
   cp -r infra/${ORM,,}/META-INF/* tmp/src/main/resources/META-INF
   cp -r infra/common/database tmp/src/main/resources
   cp -r infra/common/META-INF tmp/src/main/resources
   
-  if [ ${ORM} = "MyBatis3" ]; then
+  if [ "${ORM}" = "MyBatis3" ]; then
     cp -r infra/${ORM,,}/xxxxxx tmp/src/main/resources
   fi
 fi
 
 pushd tmp
 
-if [ $ORM != "NoORM" ]; then
+if [ "${ORM}" != "NoORM" ]; then
   # remove comment out
   sed -i -e "/${KEYWORD}/d" `grep -rIl "${ORM}" ${TARGET}`
   
