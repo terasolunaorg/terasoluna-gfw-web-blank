@@ -1,15 +1,53 @@
 #!/bin/sh
 set -e
 
+DEPLOY=$1
+REPOSITORY=$2
+ORM=$3
+
+if [ -z ${ORM} ]; then
+  ORM="NoORM"
+fi
+
+KEYWORD="REMOVE THIS LINE IF YOU USE ${ORM}"
+TARGET="src pom.xml"
+
+# start create tmp directory
 rm -rf ./tmp
 mkdir tmp
-cp -r src pom.xml tmp
+cp -r pom.xml tmp
+cp -r src tmp
+
+# artifactId
+if [ "${ORM}" != "NoORM" ]; then
+  ARTIFACT_ID=terasoluna-gfw-web-blank-${ORM,,}
+else
+  ARTIFACT_ID=terasoluna-gfw-web-blank
+fi
+echo create ${ARTIFACT_ID}
+
+# copy infra
+if [ "${ORM}" != "NoORM" ]; then
+  cp -r infra/${ORM,,}/META-INF/* tmp/src/main/resources/META-INF
+  cp -r infra/common/database tmp/src/main/resources
+  cp -r infra/common/META-INF tmp/src/main/resources
+  
+  if [ "${ORM}" = "MyBatis3" ]; then
+    cp -r infra/${ORM,,}/xxxxxx tmp/src/main/resources
+  fi
+fi
+
 pushd tmp
 
-# delete database info if JPA or Mybatis3 is not used
-# adding "$$ true" prevents grep from returning an error and aborting the process if the file cannot be retrieved
-grep "<artifactId>" pom.xml | head -1 | grep -E "jpa|mybatis3" >/dev/null && true
-if [ $? -ne 0 ]; then
+if [ "${ORM}" != "NoORM" ]; then
+  # remove comment out
+  sed -i -e "/${KEYWORD}/d" `grep -rIl "${ORM}" ${TARGET}`
+  
+  # sed pom.xml
+  sed -i -e "s/terasoluna-gfw-web-blank/${ARTIFACT_ID}/g" pom.xml
+  sed -i -e "s/Web Blank Project/Web Blank Project (${ORM})/g" pom.xml
+else
+  # delete database info if JPA or Mybatis3 is not used. (NoORM)
   sed -i -e '/Begin Database/,/End Database/d' pom.xml
   sed -i -e '/postgresql.version/d' pom.xml
   sed -i -e '/ojdbc.version/d' pom.xml
@@ -36,21 +74,20 @@ if [ -d src/main/resources/xxxxxx ];then
 fi
 
 sed -i -e "s/org\.terasoluna\.gfw\.blank/xxxxxx.yyyyyy.zzzzzz/g" pom.xml
-sed -i -e "s/terasoluna-gfw-web-blank/projectName/g" pom.xml
+sed -i -e "s/${ARTIFACT_ID}/projectName/g" pom.xml
 
-rm -rf `find . -name '.svn' -type d`
-
-if [ "$2" = "central" ]; then
+if [ "${REPOSITORY}" = "central" ]; then
   PROFILE="-P central"
 fi
+
 mvn archetype:create-from-project ${PROFILE}
 
 pushd target/generated-sources/archetype
 
 sed -i -e "s/xxxxxx\.yyyyyy\.zzzzzz/org.terasoluna.gfw.blank/g" pom.xml
-sed -i -e "s/projectName/terasoluna-gfw-web-blank/g" pom.xml
+sed -i -e "s/projectName/${ARTIFACT_ID}/g" pom.xml
 
-if [ "$2" = "central" ]; then
+if [ "${REPOSITORY}" = "central" ]; then
   # add plugins to deploy to Maven Central Repository
   LF=$(printf '\\\012_')
   LF=${LF%_}
@@ -93,7 +130,7 @@ if [ "$2" = "central" ]; then
   sed -i -e "s/  <\/build>/${REPLACEMENT_TAG}/" pom.xml
 fi
 
-if [ "$1" = "deploy" ]; then
+if [ "${DEPLOY}" = "deploy" ]; then
   mvn deploy -X
 else
   mvn install

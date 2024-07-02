@@ -3,6 +3,6 @@ set -e
 
 DEPLOY=$1
 REPOSITORY=$2
-ORM=MyBatis3
+ORM=NoORM
 
 sh create-maven-archetype.sh "$DEPLOY" "$REPOSITORY" "$ORM"
