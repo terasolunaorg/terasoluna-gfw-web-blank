@@ -5,8 +5,8 @@ set -e
 ## configurable params
 ##-------------------------
 PROJECTNAME=$1
-if [ "$PROJECTNAME" == "" ];then
-    PROJECTNAME=`basename \`pwd\``
+if [ "$PROJECTNAME" == "" ]; then
+    PROJECTNAME=$(basename $(pwd))
 fi
 JAVAVERSION=1.8
 
@@ -33,7 +33,7 @@ download_jars() {
     mvn dependency:copy-dependencies -DoutputDirectory=$WEBINFLIB -DincludeScope=runtime -DexcludeTypes=pom
     mvn dependency:copy-dependencies -DoutputDirectory=$TESTLIB -DexcludeScope=runtime -DexcludeTypes=pom
     mvn dependency:copy-dependencies -DoutputDirectory=$LIBSRC -DexcludeTypes=pom -Dclassifier=sources
-    echo $? > /dev/null
+    echo $? >/dev/null
 }
 
 ##-------------------------
@@ -42,26 +42,28 @@ download_jars() {
 
 create_dotclasspath() {
     ENTRIES=
-    for f in `ls $WEBINFLIB`;do
-        SRCNAME=`echo $f | sed -e s/.jar/-sources.jar/`
-        ENTRIES=`cat <<__EOT__
+    for f in $(ls $WEBINFLIB); do
+        SRCNAME=$(echo $f | sed -e s/.jar/-sources.jar/)
+        ENTRIES=$(cat <<__EOT__
 $ENTRIES
     <classpathentry kind="lib"
         path="$WEBINFLIB/$f"
         sourcepath="$LIBSRC/$SRCNAME" />
-__EOT__`
+__EOT__
+        )
     done
-    for f in `ls $TESTLIB`;do
-        SRCNAME=`echo $f | sed -e s/.jar/-sources.jar/`
-        ENTRIES=`cat <<__EOT__
+    for f in $(ls $TESTLIB); do
+        SRCNAME=$(echo $f | sed -e s/.jar/-sources.jar/)
+        ENTRIES=$(cat <<__EOT__
 $ENTRIES
     <classpathentry kind="lib"
         path="$TESTLIB/$f"
         sourcepath="$LIBSRC/$SRCNAME" />
-__EOT__`
+__EOT__
+        )
     done
 
-    DOTCLASSPATH_CONTENT=`cat <<__EOT__
+    DOTCLASSPATH_CONTENT=$(cat <<__EOT__
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
     <classpathentry kind="src" output="target/classes"
@@ -96,10 +98,10 @@ __EOT__`
     </classpathentry>$ENTRIES
     <classpathentry kind="output" path="target/classes" />
 </classpath>
-__EOT__`
+__EOT__
+    )
 
-
-    echo "$DOTCLASSPATH_CONTENT" > $DOTCLASSPATH
+    echo "$DOTCLASSPATH_CONTENT" >$DOTCLASSPATH
 }
 
 ##-------------------------
@@ -107,7 +109,7 @@ __EOT__`
 ##-------------------------
 
 create_dotproject() {
-    DOTPROJECT_CONTENT=`cat <<__EOT__
+    DOTPROJECT_CONTENT=$(cat <<__EOT__
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
     <name>$PROJECTNAME</name>
@@ -149,8 +151,9 @@ create_dotproject() {
         <nature>org.eclipse.wst.jsdt.core.jsNature</nature>
     </natures>
 </projectDescription>
-__EOT__`
-    echo "$DOTPROJECT_CONTENT" > $DOTPROJECT
+__EOT__
+    )
+    echo "$DOTPROJECT_CONTENT" >$DOTPROJECT
 }
 
 ##-------------------------
@@ -167,7 +170,7 @@ create_settings() {
 ##--------------------------------------------------
 
 create_prefs() {
-    CONTENT=`cat <<__EOT__
+    CONTENT=$(cat <<__EOT__
 eclipse.preferences.version=1
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=$JAVAVERSION
@@ -175,8 +178,9 @@ org.eclipse.jdt.core.compiler.compliance=$JAVAVERSION
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
 org.eclipse.jdt.core.compiler.source=$JAVAVERSION
-__EOT__`
-    echo "$CONTENT" > $PREFS
+__EOT__
+    )
+    echo "$CONTENT" >$PREFS
 }
 
 ##--------------------------------------------------
@@ -184,7 +188,7 @@ __EOT__`
 ##--------------------------------------------------
 
 create_component() {
-    CONTENT=`cat <<__EOT__
+    CONTENT=$(cat <<__EOT__
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="$PROJECTNAME">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
@@ -196,8 +200,9 @@ create_component() {
         <property name="java-output-path" value="/$PROJECTNAME/target/classes"/>
     </wb-module>
 </project-modules>
-__EOT__`
-    echo "$CONTENT" > $COMPONENT
+__EOT__
+    )
+    echo "$CONTENT" >$COMPONENT
 }
 
 ##--------------------------------------------------
@@ -205,18 +210,17 @@ __EOT__`
 ##--------------------------------------------------
 
 create_facet() {
-    CONTENT=`cat <<__EOT__
+    CONTENT=$(cat <<__EOT__
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
   <installed facet="java" version="$JAVAVERSION"/>
   <installed facet="jst.web" version="3.0"/>
   <installed facet="wst.jsdt.web" version="1.0"/>
 </faceted-project>
-__EOT__`
-    echo "$CONTENT" > $FACET
+__EOT__
+    )
+    echo "$CONTENT" >$FACET
 }
-
-
 
 ##-------------------------
 ## create build.xml
@@ -224,34 +228,36 @@ __EOT__`
 
 create_buildxml() {
     ENTRIES=
-    for f in `ls $WEBINFLIB`;do
-        ENTRIES=`cat <<__EOT__
+    for f in $(ls $WEBINFLIB); do
+        ENTRIES=$(cat <<__EOT__
 $ENTRIES
-    <pathelement location="\\${lib.dir}/$f"/>
-__EOT__`
+    <pathelement location="\${lib.dir}/$f"/>
+__EOT__
+        )
     done
 
     TESTENTRIES=
-    for f in `ls $TESTLIB`;do
-        TESTENTRIES=`cat <<__EOT__
+    for f in $(ls $TESTLIB); do
+        TESTENTRIES=$(cat <<__EOT__
 $TESTENTRIES
-    <pathelement location="\\${testlib.dir}/$f"/>
-__EOT__`
+    <pathelement location="\${testlib.dir}/$f"/>
+__EOT__
+        )
     done
 
-    CONTENT=`cat <<__EOT__
+    CONTENT=$(cat <<__EOT__
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="$PROJECTNAME" default="package">
   <property name="maven.build.finalName" value="$PROJECTNAME"/>
   <property name="maven.build.dir" value="target"/>
-  <property name="maven.build.outputDir" value="\\${maven.build.dir}/classes"/>
+  <property name="maven.build.outputDir" value="\${maven.build.dir}/classes"/>
   <property name="maven.build.srcDir.0" value="src/main/java"/>
   <property name="maven.build.resourceDir.0" value="src/main/resources"/>
-  <property name="maven.build.testOutputDir" value="\\${maven.build.dir}/test-classes"/>
+  <property name="maven.build.testOutputDir" value="\${maven.build.dir}/test-classes"/>
   <property name="maven.build.testDir.0" value="src/test/java"/>
   <property name="maven.build.testResourceDir.0" value="src/test/resources"/>
-  <property name="maven.test.reports" value="\\${maven.build.dir}/test-reports"/>
-  <property name="maven.reporting.outputDirectory" value="\\${maven.build.dir}/site"/>
+  <property name="maven.test.reports" value="\${maven.build.dir}/test-reports"/>
+  <property name="maven.reporting.outputDirectory" value="\${maven.build.dir}/site"/>
   <property name="lib.dir" value="$WEBINFLIB" />
   <property name="testlib.dir" value="$TESTLIB" />
   <path id="build.classpath">$ENTRIES
@@ -265,7 +271,7 @@ __EOT__`
   <!-- ====================================================================== -->
 
   <target name="clean" description="Clean the output directory">
-    <delete dir="\\${maven.build.dir}"/>
+    <delete dir="\${maven.build.dir}"/>
   </target>
 
   <!-- ====================================================================== -->
@@ -273,8 +279,8 @@ __EOT__`
   <!-- ====================================================================== -->
 
   <target name="compile" description="Compile the code">
-    <mkdir dir="\\${maven.build.outputDir}"/>
-    <javac destdir="\\${maven.build.outputDir}" 
+    <mkdir dir="\${maven.build.outputDir}"/>
+    <javac destdir="\${maven.build.outputDir}" 
            nowarn="false" 
            debug="true" 
            optimize="false" 
@@ -284,12 +290,12 @@ __EOT__`
            fork="false" 
            source="$JAVAVERSION">
       <src>
-        <pathelement location="\\${maven.build.srcDir.0}"/>
+        <pathelement location="\${maven.build.srcDir.0}"/>
       </src>
       <classpath refid="build.classpath"/>
     </javac>
-    <copy todir="\\${maven.build.outputDir}">
-      <fileset dir="\\${maven.build.resourceDir.0}"/>
+    <copy todir="\${maven.build.outputDir}">
+      <fileset dir="\${maven.build.resourceDir.0}"/>
     </copy>
   </target>
 
@@ -301,8 +307,8 @@ __EOT__`
           depends="compile" 
           description="Compile the test code" 
           unless="maven.test.skip">
-    <mkdir dir="\\${maven.build.testOutputDir}"/>
-    <javac destdir="\\${maven.build.testOutputDir}" 
+    <mkdir dir="\${maven.build.testOutputDir}"/>
+    <javac destdir="\${maven.build.testOutputDir}" 
            nowarn="false" 
            debug="true" 
            optimize="false" 
@@ -312,15 +318,15 @@ __EOT__`
            fork="false" 
            source="$JAVAVERSION">
       <src>
-        <pathelement location="\\${maven.build.testDir.0}"/>
+        <pathelement location="\${maven.build.testDir.0}"/>
       </src>
       <classpath>
         <path refid="build.test.classpath"/>
-        <pathelement location="\\${maven.build.outputDir}"/>
+        <pathelement location="\${maven.build.outputDir}"/>
       </classpath>
     </javac>
-    <copy todir="\\${maven.build.testOutputDir}">
-      <fileset dir="\\${maven.build.testResourceDir.0}"/>
+    <copy todir="\${maven.build.testOutputDir}">
+      <fileset dir="\${maven.build.testResourceDir.0}"/>
     </copy>
   </target>
 
@@ -332,25 +338,25 @@ __EOT__`
           depends="compile-tests" 
           unless="junit.skipped" 
           description="Run the test cases">
-    <mkdir dir="\\${maven.test.reports}"/>
+    <mkdir dir="\${maven.test.reports}"/>
     <junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
       <sysproperty key="basedir" value="."/>
       <formatter type="xml"/>
       <formatter type="plain" usefile="false"/>
       <classpath>
         <path refid="build.test.classpath"/>
-        <pathelement location="\\${maven.build.outputDir}"/>
-        <pathelement location="\\${maven.build.testOutputDir}"/>
+        <pathelement location="\${maven.build.outputDir}"/>
+        <pathelement location="\${maven.build.testOutputDir}"/>
       </classpath>
-      <batchtest todir="\\${maven.test.reports}" unless="test">
-        <fileset dir="\\${maven.build.testDir.0}">
+      <batchtest todir="\${maven.test.reports}" unless="test">
+        <fileset dir="\${maven.build.testDir.0}">
           <include name="**/*Test.java"/>
           <exclude name="**/*Abstract*Test.java"/>
         </fileset>
       </batchtest>
-      <batchtest todir="\\${maven.test.reports}" if="test">
-        <fileset dir="\\${maven.build.testDir.0}">
-          <include name="**/\\${test}.java"/>
+      <batchtest todir="\${maven.test.reports}" if="test">
+        <fileset dir="\${maven.build.testDir.0}">
+          <include name="**/\${test}.java"/>
           <exclude name="**/*Abstract*Test.java"/>
         </fileset>
       </batchtest>
@@ -362,11 +368,11 @@ __EOT__`
   <!-- ====================================================================== -->
 
   <target name="package" depends="compile,test" description="Package the application">
-    <war destfile="\\${maven.build.dir}/\\${maven.build.finalName}.war" 
+    <war destfile="\${maven.build.dir}/\${maven.build.finalName}.war" 
          compress="true" 
          webxml="src/main/webapp/WEB-INF/web.xml">
-      <lib dir="\\${lib.dir}"/>
-      <classes dir="\\${maven.build.outputDir}"/>
+      <lib dir="\${lib.dir}"/>
+      <classes dir="\${maven.build.outputDir}"/>
       <fileset dir="src/main/webapp" 
                excludes="WEB-INF/web.xml"/>
     </war>
@@ -377,9 +383,9 @@ __EOT__`
   <!-- ====================================================================== -->
 
   <target name="javadoc" description="Generates the Javadoc of the application">
-    <javadoc sourcepath="\\${maven.build.srcDir.0}" 
+    <javadoc sourcepath="\${maven.build.srcDir.0}" 
              packagenames="*" 
-             destdir="\\${maven.reporting.outputDirectory}/apidocs" 
+             destdir="\${maven.reporting.outputDirectory}/apidocs" 
              access="protected" 
              old="false" 
              verbose="false" 
@@ -407,9 +413,10 @@ __EOT__`
   <target name="war" depends="package" description="Builds the war for the application"/>
 </project>
 
-__EOT__`
+__EOT__
+    )
 
-    echo "$CONTENT" > $BUILDXML
+    echo "$CONTENT" >$BUILDXML
 }
 
 ##--------------------------------------------------

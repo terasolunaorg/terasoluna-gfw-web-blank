@@ -14,9 +14,8 @@ import org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor;
  * Bean definitions for domain layer.
  */
 @Configuration
-@ComponentScan(basePackages = { "xxxxxx.yyyyyy.zzzzzz.domain" })
-@Import({ ProjectNameInfraConfig.class,
-    ProjectNameCodeListConfig.class })
+@ComponentScan(basePackages = {"xxxxxx.yyyyyy.zzzzzz.domain"})
+@Import({ProjectNameInfraConfig.class, ProjectNameCodeListConfig.class})
 public class ProjectNameDomainConfig {
 
     /**
@@ -43,8 +42,7 @@ public class ProjectNameDomainConfig {
     public Advisor resultMessagesLoggingInterceptorAdvisor(
             ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor) {
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression(
-                "@within(org.springframework.stereotype.Service)");
+        pointcut.setExpression("@within(org.springframework.stereotype.Service)");
         return new DefaultPointcutAdvisor(pointcut, resultMessagesLoggingInterceptor);
     }
 }
