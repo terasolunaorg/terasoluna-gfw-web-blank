@@ -6,21 +6,18 @@
     xmlns:util="http://www.springframework.org/schema/util"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
-    ">
+                        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd
+                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:property-placeholder
         location="classpath*:/META-INF/spring/*.properties" />
 
     <mvc:annotation-driven>
         <mvc:argument-resolvers>
-            <bean
-                class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />
-            <bean
-                class="org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver" />
+            <bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />
+            <bean class="org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver" />
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
 
@@ -110,7 +107,7 @@
         <property name="defaultStatusCode" value="500" />
     </bean>
     <!-- Setting AOP. -->
-    <aop:aspectj-autoproxy/>
+    <aop:aspectj-autoproxy />
     <bean id="handlerExceptionResolverLoggingInterceptor"
         class="org.terasoluna.gfw.web.exception.HandlerExceptionResolverLoggingInterceptor">
         <property name="exceptionLogger" ref="exceptionLogger" />
