@@ -134,7 +134,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(interceptor).addPathPatterns("/**")
                 .excludePathPatterns("/resources/**");
     }
-    
+
     // @formatter:off
     /* REMOVE THIS LINE IF YOU USE JPA
     /**
@@ -149,8 +149,8 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     }
     REMOVE THIS LINE IF YOU USE JPA */
     // @formatter:on 
-    
-    /** 
+
+    /**
      * Configure {@link TraceLoggingInterceptor} bean.
      * @return Bean of configured {@link TraceLoggingInterceptor}
      */
@@ -178,7 +178,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
         codeListInterceptor.setCodeListIdPattern(Pattern.compile("CL_.+"));
         return codeListInterceptor;
     }
-    
+
     // @formatter:off
     /* REMOVE THIS LINE IF YOU USE JPA
     /**
