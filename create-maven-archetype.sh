@@ -4,6 +4,7 @@ set -e
 DEPLOY=$1
 REPOSITORY=$2
 ORM=$3
+REPOSITORY_NAME=terasoluna-gfw-web-blank
 
 if [ -z ${ORM} ]; then
   ORM="NoORM"
@@ -75,6 +76,7 @@ fi
 
 sed -i -e "s/org\.terasoluna\.gfw\.blank/xxxxxx.yyyyyy.zzzzzz/g" pom.xml
 sed -i -e "s/${ARTIFACT_ID}/projectName/g" pom.xml
+sed -i -e "s/REPOSITORY_NAME/${REPOSITORY_NAME}/g" pom.xml
 
 if [ "${REPOSITORY}" = "central" ]; then
   PROFILE="-P central"
