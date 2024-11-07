@@ -5,21 +5,26 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.time.Duration;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import xxxxxx.yyyyyy.zzzzzz.selenium.FunctionTestSupport;
+import jakarta.inject.Inject;
 
 /**
  * Perform an error page rendering test.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:META-INF/spring/seleniumContext.xml"})
-public class ErrorTest extends FunctionTestSupport {
+public class ErrorTest {
+
+    @Inject
+    private WebDriver webDriver;
 
     @Value("${selenium.applicationContextUrl}")
     private String applicationContextUrl;
@@ -171,6 +176,14 @@ public class ErrorTest extends FunctionTestSupport {
                 is("Unhandled System Error!"));
         assertThat(webDriver.findElement(By.className("error")).getText(),
                 is("Unhandled system error occurred!"));
+    }
+
+    /**
+     * Quits the driver, closing every associated window.
+     */
+    @After
+    public void tearDown() {
+        webDriver.quit();
     }
 
 }
