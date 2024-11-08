@@ -22,7 +22,6 @@ import xxxxxx.yyyyyy.zzzzzz.selenium.FunctionTestSupport;
 @ContextConfiguration(classes = {SeleniumContextConfig.class})
 public class ErrorTest extends FunctionTestSupport {
 
-
     @Value("${selenium.applicationContextUrl}")
     private String applicationContextUrl;
 
