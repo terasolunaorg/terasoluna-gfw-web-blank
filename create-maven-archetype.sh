@@ -4,7 +4,6 @@ set -e
 DEPLOY=$1
 REPOSITORY=$2
 ORM=$3
-#REPOSITORY_NAME=terasoluna-gfw-web-blank
 
 if [ -z ${ORM} ]; then
   ORM="NoORM"
