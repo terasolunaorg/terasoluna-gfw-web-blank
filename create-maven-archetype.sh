@@ -44,7 +44,6 @@ if [ "${ORM}" != "NoORM" ]; then
   sed -i -e "/${KEYWORD}/d" `grep -rIl "${ORM}" ${TARGET}`
   
   # sed pom.xml
-  sed -i -e "s/terasoluna-gfw-web-blank/${ARTIFACT_ID}/g" pom.xml
   sed -i -e "s/Web Blank Project/Web Blank Project (${ORM})/g" pom.xml
 else
   # delete database info if JPA or Mybatis3 is not used. (NoORM)
@@ -72,9 +71,6 @@ if [ -d src/main/resources/xxxxxx ];then
   mv src/main/resources/xxxxxx/yyyyyy/zzzzzz/domain src/main/resources/__packageInPathFormat__/
   rm -rf src/main/resources/xxxxxx
 fi
-
-sed -i -e "s/org\.terasoluna\.gfw\.blank/xxxxxx.yyyyyy.zzzzzz/g" pom.xml
-sed -i -e "s/${ARTIFACT_ID}/projectName/g" pom.xml
 
 if [ "${REPOSITORY}" = "central" ]; then
   PROFILE="-P central"
