@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.terasoluna.gfw.blank</groupId>
-    <artifactId>terasoluna-gfw-web-blank</artifactId>
+    <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
+    <artifactId>projectName</artifactId>
     <version>5.7.4-SNAPSHOT</version>
     <packaging>war</packaging>
     <parent>
@@ -36,9 +36,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git://github.com/terasolunaorg/REPOSITORY_NAME.git</connection>
-        <developerConnection>scm:git:ssh://github.com/terasolunaorg/REPOSITORY_NAME.git</developerConnection>
-        <url>https://github.com/terasolunaorg/REPOSITORY_NAME</url>
+        <connection>scm:git:git://github.com/terasolunaorg/terasoluna-gfw-web-blank.git</connection>
+        <developerConnection>scm:git:ssh://github.com/terasolunaorg/terasoluna-gfw-web-blank.git</developerConnection>
+        <url>https://github.com/terasolunaorg/terasoluna-gfw-web-blank</url>
     </scm>
     <build>
         <pluginManagement>
