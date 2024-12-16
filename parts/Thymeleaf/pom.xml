@@ -298,8 +298,8 @@
 
     <properties>
         <!-- == Maven Plugin Versions == -->
-        <org.apache.maven.plugins.maven-war-plugin.version>3.3.2</org.apache.maven.plugins.maven-war-plugin.version>
-        <org.codehaus.mojo.build-helper-maven-plugin.version>3.3.0</org.codehaus.mojo.build-helper-maven-plugin.version>
+        <org.apache.maven.plugins.maven-war-plugin.version>3.4.0</org.apache.maven.plugins.maven-war-plugin.version>
+        <org.codehaus.mojo.build-helper-maven-plugin.version>3.6.0</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
         <postgresql.version>42.7.1</postgresql.version>
         <ojdbc.version>23.3.0.23.09</ojdbc.version>
