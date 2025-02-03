@@ -1,9 +1,7 @@
 package xxxxxx.yyyyyy.zzzzzz.config.app;
 
 import java.time.Duration;
-
 import javax.sql.DataSource;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,12 +12,13 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 REMOVE THIS LINE IF YOU USE MyBatis3 */
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+/* REMOVE THIS LINE IF YOU USE JPA
+import org.springframework.orm.jpa.JpaTransactionManager;
+REMOVE THIS LINE IF YOU USE JPA */
 import org.springframework.transaction.TransactionManager;
 import org.terasoluna.gfw.common.time.ClockFactory;
 import org.terasoluna.gfw.common.time.DefaultClockFactory;
-
 /* REMOVE THIS LINE IF YOU USE JPA
-import org.springframework.orm.jpa.JpaTransactionManager;
 import jakarta.persistence.EntityManagerFactory;
 REMOVE THIS LINE IF YOU USE JPA */
 

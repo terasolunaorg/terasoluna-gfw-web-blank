@@ -2,14 +2,10 @@ package xxxxxx.yyyyyy.zzzzzz.selenium.welcome;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
