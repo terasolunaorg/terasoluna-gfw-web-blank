@@ -29,6 +29,7 @@ import org.terasoluna.gfw.web.exception.ExceptionLoggingFilter;
 @Import({ProjectNameDomainConfig.class})
 public class ApplicationContextConfig {
 
+    // @formatter:off
     /**
      * Configure {@link PasswordEncoder} bean.
      * @return Bean of configured {@link DelegatingPasswordEncoder}
@@ -38,13 +39,13 @@ public class ApplicationContextConfig {
         Map<String, PasswordEncoder> idToPasswordEncoder = new HashMap<>();
         idToPasswordEncoder.put("pbkdf2", pbkdf2PasswordEncoder());
         idToPasswordEncoder.put("bcrypt", bCryptPasswordEncoder());
-        /*
-         * When using commented out PasswordEncoders, you need to add bcprov-jdk18on.jar to the
-         * dependency. idToPasswordEncoder.put("argon2", argon2PasswordEncoder());
-         * idToPasswordEncoder.put("scrypt", sCryptPasswordEncoder());
-         */
+        /* When using commented out PasswordEncoders, you need to add bcprov-jdk18on.jar to the dependency.
+        idToPasswordEncoder.put("argon2", argon2PasswordEncoder());
+        idToPasswordEncoder.put("scrypt", sCryptPasswordEncoder());
+        */
         return new DelegatingPasswordEncoder("pbkdf2", idToPasswordEncoder);
     }
+    // @formatter:on
 
     /**
      * Configure {@link Pbkdf2PasswordEncoder} bean.
@@ -64,16 +65,18 @@ public class ApplicationContextConfig {
         return new BCryptPasswordEncoder();
     }
 
-    /*
-     * When using commented out PasswordEncoders, you need to add bcprov-jdk18on.jar to the
-     * dependency.
-     * 
-     * @Bean public Argon2PasswordEncoder argon2PasswordEncoder() { return
-     * Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8(); }
-     * 
-     * @Bean public SCryptPasswordEncoder sCryptPasswordEncoder() { return
-     * SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8(); }
-     */
+    // @formatter:off
+    /* When using commented out PasswordEncoders, you need to add bcprov-jdk18on.jar to the dependency.
+    @Bean
+    public Argon2PasswordEncoder argon2PasswordEncoder() {
+        return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
+    }
+    @Bean
+    public SCryptPasswordEncoder sCryptPasswordEncoder() {
+        return SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8();
+    }
+    */
+    // @formatter:on
 
     /**
      * Configure {@link PropertySourcesPlaceholderConfigurer} bean.
