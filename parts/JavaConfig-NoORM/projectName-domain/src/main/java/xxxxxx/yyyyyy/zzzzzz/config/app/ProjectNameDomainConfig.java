@@ -20,8 +20,8 @@ public class ProjectNameDomainConfig {
 
     /**
      * Configure messages logging AOP.
-     * @param exceptionLogger Bean defined by ApplicationContext#exceptionLogger
-     * @see xxxxxx.yyyyyy.zzzzzz.config.app.ApplicationContext#exceptionLogger()
+     * @param exceptionLogger Bean defined by ApplicationContextConfig#exceptionLogger
+     * @see xxxxxx.yyyyyy.zzzzzz.config.app.ApplicationContextConfig#exceptionLogger()
      * @return Bean of configured {@link ResultMessagesLoggingInterceptor}
      */
     @Bean("resultMessagesLoggingInterceptor")
