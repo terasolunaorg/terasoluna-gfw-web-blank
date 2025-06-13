@@ -6,17 +6,14 @@ import java.time.Duration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.ExtendWith;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import xxxxxx.yyyyyy.zzzzzz.selenium.FunctionTestSupport;
 
 /**
  * Perform an error page rendering test.
  */
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"classpath:META-INF/spring/seleniumContext.xml"})
+@SpringJUnitConfig(locations = {"classpath:META-INF/spring/seleniumContext.xml"})
 public class ErrorTest extends FunctionTestSupport {
 
     @Value("${selenium.applicationContextUrl}")
