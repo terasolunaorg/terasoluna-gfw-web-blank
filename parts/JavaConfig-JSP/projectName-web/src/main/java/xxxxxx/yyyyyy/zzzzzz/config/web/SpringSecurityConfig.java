@@ -42,9 +42,7 @@ public class SpringSecurityConfig {
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // (1)
-        http.formLogin(login -> login.loginPage("/login/loginForm").loginProcessingUrl("/login")
-                .failureUrl("/login/loginForm?error=true"));
+        http.formLogin(Customizer.withDefaults());
         http.logout(Customizer.withDefaults());
         http.exceptionHandling(ex -> ex.accessDeniedHandler(accessDeniedHandler()));
         http.addFilterAfter(userIdMDCPutFilter(), AnonymousAuthenticationFilter.class);
