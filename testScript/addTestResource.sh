@@ -101,7 +101,7 @@ SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}            <scope>test<\
 SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}        <\/dependency>${LF}"
 SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}        <!-- == End Unit Test == -->"
 
-sed -i -e "s/<!-- == End Unit Test == -->/${DEPENDENCIES_TAG}/" ./tmp/${PROJECT_NAME}/pom.xml
+sed -i -e "s/<!-- == End Unit Test == -->/${SECURITY_DEPENDENCIES_TAG}/" ./tmp/${PROJECT_NAME}/pom.xml
 
 echo ">>>>> COPY TMP"
 cp -fr ./tmp/${PROJECT_NAME}/* ${WORK_DIR}
