@@ -105,7 +105,7 @@ public class InterceptorTest {
                 .isEqualTo("org.terasoluna.gfw.web.logging.TraceLoggingInterceptor");
         assertThat(events.get(2).getFormattedMessage()
                 .matches("^\\[HANDLING TIME   \\] MockTestController\\.test\\(Model\\)-> .+"))
-                        .isEqualTo(true);
+                        .isTrue();
     }
 
     /**
