@@ -84,14 +84,24 @@ cp -f ${WORK_DIR}/pom.xml ./tmp/${PROJECT_NAME}
 
 LF=$(printf '\\\012_')
 LF=${LF%_}
-DEPENDENCIES_TAG="<dependency>${LF}"
-DEPENDENCIES_TAG="${DEPENDENCIES_TAG}            <groupId>org.springframework.security<\/groupId>${LF}"
-DEPENDENCIES_TAG="${DEPENDENCIES_TAG}            <artifactId>spring-security-test<\/artifactId>${LF}"
-DEPENDENCIES_TAG="${DEPENDENCIES_TAG}            <scope>test<\/scope>${LF}"
-DEPENDENCIES_TAG="${DEPENDENCIES_TAG}        <\/dependency>${LF}"
-DEPENDENCIES_TAG="${DEPENDENCIES_TAG}        <!-- == End Unit Test == -->"
 
-sed -i -e "s/<!-- == End Unit Test == -->/${DEPENDENCIES_TAG}/" ./tmp/${PROJECT_NAME}/pom.xml
+ASSERTJ_DEPENDENCIES_TAG="<artifactId>junit-jupiter<\/artifactId>${LF}"
+ASSERTJ_DEPENDENCIES_TAG="${ASSERTJ_DEPENDENCIES_TAG}            <scope>test<\/scope>${LF}"
+ASSERTJ_DEPENDENCIES_TAG="${ASSERTJ_DEPENDENCIES_TAG}        <\/dependency>${LF}"
+ASSERTJ_DEPENDENCIES_TAG="${ASSERTJ_DEPENDENCIES_TAG}        <dependency>${LF}"
+ASSERTJ_DEPENDENCIES_TAG="${ASSERTJ_DEPENDENCIES_TAG}            <groupId>org.assertj<\/groupId>${LF}"
+ASSERTJ_DEPENDENCIES_TAG="${ASSERTJ_DEPENDENCIES_TAG}            <artifactId>assertj-core<\/artifactId>"
+
+sed -i -e "s/<artifactId>junit-jupiter<\/artifactId>/${ASSERTJ_DEPENDENCIES_TAG}/" ./tmp/${PROJECT_NAME}/pom.xml
+
+SECURITY_DEPENDENCIES_TAG="<dependency>${LF}"
+SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}            <groupId>org.springframework.security<\/groupId>${LF}"
+SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}            <artifactId>spring-security-test<\/artifactId>${LF}"
+SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}            <scope>test<\/scope>${LF}"
+SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}        <\/dependency>${LF}"
+SECURITY_DEPENDENCIES_TAG="${SECURITY_DEPENDENCIES_TAG}        <!-- == End Unit Test == -->"
+
+sed -i -e "s/<!-- == End Unit Test == -->/${SECURITY_DEPENDENCIES_TAG}/" ./tmp/${PROJECT_NAME}/pom.xml
 
 echo ">>>>> COPY TMP"
 cp -fr ./tmp/${PROJECT_NAME}/* ${WORK_DIR}
