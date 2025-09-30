@@ -41,6 +41,7 @@
         <url>https://github.com/terasolunaorg/terasoluna-gfw-web-blank</url>
     </scm>
     <build>
+        <finalName>${project.artifactId}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -110,7 +111,6 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${org.apache.maven.plugins.maven-war-plugin.version}</version>
                     <configuration>
-                        <warName>${project.artifactId}</warName>
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
                             <manifest>
