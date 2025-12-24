@@ -266,11 +266,6 @@
             <artifactId>spring-test-dbunit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <scope>test</scope>
-        </dependency>
         -->
 
         <!-- Please set the appropriate version according to the web browser. -->
@@ -298,8 +293,8 @@
         <org.apache.maven.plugins.maven-war-plugin.version>3.4.0</org.apache.maven.plugins.maven-war-plugin.version>
         <org.codehaus.mojo.build-helper-maven-plugin.version>3.6.0</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
-        <postgresql.version>42.7.4</postgresql.version>
-        <ojdbc.version>23.6.0.24.10</ojdbc.version>
+        <postgresql.version>42.7.8</postgresql.version>
+        <ojdbc.version>23.9.0.25.07</ojdbc.version>
         <!-- == Project Properties == -->
         <encoding>UTF-8</encoding>
         <java-version>17</java-version>
