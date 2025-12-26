@@ -76,7 +76,6 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>${org.codehaus.mojo.build-helper-maven-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>add-source</id>
@@ -109,7 +108,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>${org.apache.maven.plugins.maven-war-plugin.version}</version>
                     <configuration>
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
@@ -293,9 +291,6 @@
     </dependencies>
 
     <properties>
-        <!-- == Maven Plugin Versions == -->
-        <org.apache.maven.plugins.maven-war-plugin.version>3.4.0</org.apache.maven.plugins.maven-war-plugin.version>
-        <org.codehaus.mojo.build-helper-maven-plugin.version>3.6.0</org.codehaus.mojo.build-helper-maven-plugin.version>
         <!-- == Dependency Versions == -->
         <postgresql.version>42.7.8</postgresql.version>
         <ojdbc.version>23.9.0.25.07</ojdbc.version>
