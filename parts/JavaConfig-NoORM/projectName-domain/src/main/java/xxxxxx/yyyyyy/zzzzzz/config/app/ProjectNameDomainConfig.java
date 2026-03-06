@@ -19,7 +19,7 @@ import org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor;
 public class ProjectNameDomainConfig {
 
     /**
-     * Configure messages logging AOP.
+     * Configure {@link ResultMessagesLoggingInterceptor} bean.
      * @param exceptionLogger Bean defined by ApplicationContextConfig#exceptionLogger
      * @see xxxxxx.yyyyyy.zzzzzz.config.app.ApplicationContextConfig#exceptionLogger()
      * @return Bean of configured {@link ResultMessagesLoggingInterceptor}
