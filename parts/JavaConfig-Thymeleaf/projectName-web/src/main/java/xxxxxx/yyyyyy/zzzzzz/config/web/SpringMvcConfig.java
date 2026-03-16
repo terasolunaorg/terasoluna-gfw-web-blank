@@ -204,6 +204,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.beanName();
         registry.viewResolver(thymeleafViewResolver());
     }
 
